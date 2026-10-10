@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow"><meta name="theme-color" content="#0B1F3B">
+<title>CRM Workflows — Diane Turton Growth OS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="phone.css">
+<style>
+.doc{padding:20px 18px 28px;font-size:16px}
+.doc h1{display:none}
+.doc h2{font-size:23px;margin:30px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.doc h2:first-child{margin-top:0;border-top:0;padding-top:0}
+.doc h3{font-size:18px;margin:22px 0 8px;color:var(--navy-2)}
+.doc h4{font-size:15px;margin:16px 0 6px;font-family:Inter,sans-serif;font-weight:700}
+.doc p{margin:0 0 12px}
+.doc ul,.doc ol{margin:0 0 14px 22px}
+.doc li{margin:4px 0}
+.doc hr{display:none}
+.doc blockquote{margin:12px 0;padding:12px 14px;background:var(--paper);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;font-size:15px;color:#33404F}
+.doc blockquote p:last-child{margin:0}
+.doc code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;background:var(--cream-2);padding:1px 5px;border-radius:5px;word-break:break-word}
+.doc pre{background:var(--navy);color:#E8EDF4;padding:14px;border-radius:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 14px;font-size:13px;line-height:1.5}
+.doc pre code{background:none;padding:0;color:inherit;word-break:normal;white-space:pre}
+.doc a{color:var(--navy-3)}
+.toc{margin:0 0 6px}
+.toc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;color:var(--navy-2);padding:14px 16px;background:var(--paper);border:1px solid var(--line);border-radius:14px}
+.toc summary::-webkit-details-marker{display:none}
+.toc summary::after{content:"▾";color:var(--gold)}
+.toc[open] summary{border-radius:14px 14px 0 0}
+.toc ol{list-style:none;margin:0;padding:6px 0;background:var(--paper);border:1px solid var(--line);border-top:0;border-radius:0 0 14px 14px}
+.toc li a{display:block;padding:10px 16px;text-decoration:none;font-size:14.5px;color:var(--ink)}
+.top{position:fixed;right:16px;bottom:calc(var(--tab-h) + var(--safe-b) + 14px);width:44px;height:44px;border-radius:50%;background:var(--navy-2);color:var(--gold);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:18px;box-shadow:0 4px 14px rgba(0,0,0,.2);z-index:45}
+</style></head>
+<body data-tab="docs">
+<div class="topbar"><a class="back" href="docs.html" aria-label="Back to documents">&#8249;</a>
+<div class="brand" style="flex:1">CRM Workflows<small>Diane Turton, Realtors</small></div></div>
+<header class="hero" style="padding:24px 18px 26px"><div class="eyebrow">Operating Plan</div><h1 style="font-size:28px;margin:8px 0 6px">CRM Workflows</h1><p class="lede" style="font-size:14.5px">GoHighLevel funnels, automations, SMS & email templates</p></header>
+<main class="doc"><details class="toc"><summary>Jump to section (7)</summary><ol><li><a href="#overview">Overview</a></li><li><a href="#account-structure">Account Structure</a></li><li><a href="#funnels">FUNNELS</a></li><li><a href="#workflows">WORKFLOWS</a></li><li><a href="#sms-template-library">SMS Template Library</a></li><li><a href="#email-template-subjects">Email Template Subjects</a></li><li><a href="#pipeline-configuration">Pipeline Configuration</a></li></ol></details>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>This document outlines the complete GoHighLevel (GHL) funnel and automation system built for Diane Turton, Realtors. Every workflow is designed to operate automatically from the moment a lead enters the system — with zero manual intervention required until an agent needs to take a qualified appointment.</p>
+<hr />
+<h2 id="account-structure">Account Structure</h2>
+<pre><code>GHL Agency Account: Omniscient / Diane Turton
+│
+├── Sub-Account: DTR — Spring Lake (Pilot Office 1)
+├── Sub-Account: DTR — Manasquan (Pilot Office 2)
+└── Sub-Accounts: [12 additional offices — Full Rollout]
+    Each sub-account contains:
+    ├── 3 Funnels (Buyer / Seller / Rental)
+    ├── 3 Pipelines (Buyer / Seller / Rental)
+    ├── Workflows (Lead Capture, Nurture, Appointment, Re-engagement)
+    ├── Calendars (Per Agent + Office Availability)
+    └── Templates (SMS, Email, Voicemail Drop)
+</code></pre>
+<hr />
+<h2 id="funnels">FUNNELS</h2>
+<h3>Funnel 1 — Buyer Lead Funnel</h3>
+<p><strong>URL slug:</strong> <code>/buy-jersey-shore</code> (customized per office)</p>
+<p><strong>Page 1 — Landing Page:</strong></p>
+<ul>
+<li>Headline: "Find Your Dream Home on the Jersey Shore"</li>
+<li>Sub-headline: "Search exclusive listings with Diane Turton's local experts"</li>
+<li>Background: High-quality coastal lifestyle imagery</li>
+<li>Above-fold CTA: "Search Available Homes" → triggers opt-in form</li>
+</ul>
+<p><strong>Opt-in Form Fields:</strong></p>
+<ul>
+<li>First Name (required)</li>
+<li>Last Name (required)</li>
+<li>Email (required)</li>
+<li>Phone (required)</li>
+<li>Desired area (dropdown: Spring Lake, Manasquan, Bay Head, Other)</li>
+<li>Budget range (dropdown: Under $500K / $500K–$1M / $1M–$2M / $2M+)</li>
+<li>Timeline (dropdown: ASAP / 1–3 months / 3–6 months / Exploring)</li>
+<li>Pre-approved? (yes/no toggle)</li>
+</ul>
+<p><strong>On submit → Page 2 — Thank You / Calendar:</strong></p>
+<ul>
+<li>"Your personal search is being prepared — Book a 15-minute call with a local expert"</li>
+<li>Embedded GHL calendar for immediate appointment booking</li>
+<li>If no booking: "We'll text you within the next few minutes"</li>
+</ul>
+<p><strong>Automation triggered on form submit:</strong></p>
+<ul>
+<li>Tag: <code>buyer-lead</code>, <code>source: [funnel]</code>, <code>office: [spring-lake]</code></li>
+<li>Pipeline stage: "New Lead — Buyer"</li>
+<li>SMS sent: within 8 seconds (see Workflow 1 below)</li>
+<li>Email sent: within 60 seconds</li>
+<li>Agent assigned: round-robin within office</li>
+<li>AI voice call initiated: if no response within 15 minutes</li>
+</ul>
+<hr />
+<h3>Funnel 2 — Seller Lead Funnel</h3>
+<p><strong>URL slug:</strong> <code>/sell-my-home</code></p>
+<p><strong>Page 1 — Landing Page:</strong></p>
+<ul>
+<li>Headline: "What Is Your Jersey Shore Home Worth Right Now?"</li>
+<li>Sub-headline: "Get a free, no-obligation market analysis from Diane Turton's top listing specialists"</li>
+<li>CTA: "Get My Home Value" → opt-in form</li>
+</ul>
+<p><strong>Opt-in Form Fields:</strong></p>
+<ul>
+<li>First Name, Last Name, Email, Phone (required)</li>
+<li>Property address (required)</li>
+<li>Bedrooms / Bathrooms (dropdowns)</li>
+<li>Approximate year built</li>
+<li>Timeline to sell (dropdown: 0–3 months / 3–6 months / 6–12 months / Not sure)</li>
+<li>Reason for selling (optional dropdown)</li>
+</ul>
+<p><strong>On submit → Page 2:</strong></p>
+<ul>
+<li>"Your market analysis is being prepared — it'll be emailed within 24 hours"</li>
+<li>CTA to book a listing consultation (GHL calendar)</li>
+<li>Social proof: agent photo + "X homes sold in your area this year"</li>
+</ul>
+<p><strong>Automation triggered:</strong></p>
+<ul>
+<li>Tag: <code>seller-lead</code>, <code>source: [funnel]</code></li>
+<li>Pipeline stage: "New Lead — Seller"</li>
+<li>SMS + Email sequence initiated (Seller Nurture)</li>
+<li>Listing specialist assigned (senior agent round-robin)</li>
+<li>CMA report generation task created for assigned agent</li>
+</ul>
+<hr />
+<h3>Funnel 3 — Rental Lead Funnel</h3>
+<p><strong>URL slug:</strong> <code>/jersey-shore-rentals</code></p>
+<p><strong>Page 1 — Landing Page:</strong></p>
+<ul>
+<li>Headline: "Find Your Perfect Jersey Shore Rental"</li>
+<li>Sub-headline: "Seasonal, annual, and vacation rentals — exclusively managed by Diane Turton"</li>
+<li>CTA: "View Available Rentals" → form</li>
+</ul>
+<p><strong>Form Fields:</strong></p>
+<ul>
+<li>Name, Email, Phone</li>
+<li>Rental type (seasonal / annual / vacation)</li>
+<li>Number of bedrooms</li>
+<li>Price range</li>
+<li>Desired move-in date</li>
+<li>Specific towns of interest</li>
+</ul>
+<p><strong>Automation triggered:</strong></p>
+<ul>
+<li>Tag: <code>rental-lead</code></li>
+<li>Pipeline: Rental Pipeline</li>
+<li>SMS sent within 8 seconds</li>
+<li>Rental specialist assigned</li>
+</ul>
+<hr />
+<h2 id="workflows">WORKFLOWS</h2>
+<h3>Workflow 1 — New Lead Capture (Universal)</h3>
+<p><strong>Trigger:</strong> Contact created with any new-lead tag</p>
+<p><strong>Sequence:</strong></p>
+<pre><code>[0:00] TRIGGER: New contact created / lead tag added
+         │
+         ├─► SMS #1 (within 8 seconds)
+         │   &quot;Hi [FirstName]! This is [AgentName] with Diane Turton Realtors — 
+         │    I just received your inquiry and wanted to reach out personally. 
+         │    Are you available for a quick call in the next few minutes? 
+         │    Reply YES or call me at [AgentPhone].&quot;
+         │
+         ├─► Email #1 (within 60 seconds)
+         │   Subject: &quot;Your Jersey Shore search — next steps&quot;
+         │   Body: Personalized intro, property search link, agent photo + bio
+         │
+         ├─► Internal Task: &quot;New lead assigned — call within 15 min&quot; → Agent
+         │
+[00:15]  ─► IF no response to SMS #1:
+         │   AI Voice Call initiated via Retell
+         │   (see AI Voice Prompts for script)
+         │
+[01:00]  ─► IF no connect after AI call:
+         │   Voicemail drop: &quot;[FirstName], this is [AgentName] from Diane Turton —
+         │    I'm trying to reach you about your inquiry. Please call or text 
+         │    [number] at your convenience. Looking forward to helping you!&quot;
+         │
+[DAY 1]  ─► SMS #2 (if no response)
+         │   &quot;Hi [FirstName] — still here and happy to help whenever you're ready. 
+         │    Here are a few listings that match what you're looking for: [link]&quot;
+         │
+[DAY 2]  ─► Email #2: Featured listings in their desired area
+         │
+[DAY 3]  ─► SMS #3: &quot;Quick question — are you still looking to [buy/sell] in the 
+         │    [area]? Just want to make sure I'm sending you the right properties.&quot;
+         │
+[DAY 7]  ─► Email #3: Market insight article + personal note from agent
+         │
+[DAY 10] ─► SMS #4: &quot;I found a new listing that just came on — thought of you 
+         │    right away. Want me to send the details?&quot;
+         │
+[IF REPLY AT ANY POINT] → Move to &quot;Active Conversation&quot; stage
+[IF NO REPLY BY DAY 10] → Move to 90-Day Nurture Workflow
+</code></pre>
+<hr />
+<h3>Workflow 2 — Seller Nurture Workflow</h3>
+<p><strong>Trigger:</strong> Contact tagged <code>seller-lead</code> OR pipeline stage = "New Lead — Seller"</p>
+<p><strong>Sequence:</strong></p>
+<pre><code>[0:00]   SMS: &quot;Hi [FirstName]! [AgentName] with Diane Turton here. I'm pulling 
+          together the comparable sales in your area right now. 
+          I'll have your home value estimate ready shortly — 
+          can I call you to walk through it?&quot;
+
+[Day 1]  Email: Full CMA email (template with comps, market stats, 
+          estimated value range, agent analysis)
+
+[Day 2]  SMS: &quot;Did you get a chance to review your home value analysis? 
+          Happy to walk you through it and answer any questions.&quot;
+
+[Day 4]  Email: &quot;Why Spring Lake / [Town] sellers are choosing Diane Turton&quot; 
+          — recent sales, avg days on market, price-to-list ratio
+
+[Day 7]  SMS: &quot;No pressure at all — I just want to make sure you have 
+          everything you need. What's your biggest question about selling right now?&quot;
+
+[Day 10] Email: &quot;Your selling timeline — what you need to know&quot; 
+          (educational content for each timeline bucket)
+
+[Day 14] Phone task created for agent: &quot;Follow-up call — seller nurture Day 14&quot;
+
+[Day 21] SMS: &quot;Market update for [area] — [X homes] sold in the last 30 days, 
+          avg price: $[X]. Inventory is [up/down]. 
+          Good time to be a seller. Want to chat strategy?&quot;
+
+[Day 30] Email: &quot;Your listing potential — case study from a comparable home in [area]&quot;
+
+[Day 45] SMS: &quot;Still happy to help whenever the timing is right. 
+          If anything changes with your situation, I'm just a text away.&quot;
+
+[Day 60] Email: Market update newsletter (auto-populated from MLS feed)
+
+[Day 90] Agent task: &quot;Re-evaluate seller lead — call or archive&quot;
+</code></pre>
+<hr />
+<h3>Workflow 3 — Buyer 90-Day Nurture Workflow</h3>
+<p><strong>Trigger:</strong> No response after Day 10 initial outreach OR lead scored "Warm/Cool"</p>
+<p><strong>Goal:</strong> Stay top of mind until buyer is ready to transact</p>
+<p><strong>Sequence (abbreviated):</strong></p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Channel</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>14</td>
+<td>Email</td>
+<td>"New listings in [desired area] — hand-picked for you"</td>
+</tr>
+<tr>
+<td>17</td>
+<td>SMS</td>
+<td>"Quick check-in — is [area] still top of your list?"</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Email</td>
+<td>"[Town] market update — what buyers need to know this month"</td>
+</tr>
+<tr>
+<td>28</td>
+<td>SMS</td>
+<td>"Interest rates update + what it means for your buying power"</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Email</td>
+<td>"Behind the scenes: How the best Jersey Shore homes get found before Zillow"</td>
+</tr>
+<tr>
+<td>42</td>
+<td>SMS</td>
+<td>"Still here — any change in your timeline?"</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Email</td>
+<td>New listings + open house calendar</td>
+</tr>
+<tr>
+<td>60</td>
+<td>SMS</td>
+<td>"6 weeks until summer — is now the time to get serious about your search?"</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Email</td>
+<td>"How to win in a competitive coastal market" (guide)</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Task</td>
+<td>Agent review: "Nurture lead — call, keep, or archive?"</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3>Workflow 4 — Appointment Confirmation &amp; Follow-Up</h3>
+<p><strong>Trigger:</strong> Appointment booked in GHL calendar</p>
+<p><strong>Sequence:</strong></p>
+<pre><code>[Booking moment]
+   ├─► Confirmation SMS: 
+   │   &quot;You're all set, [FirstName]! Your appointment with [AgentName] from 
+   │    Diane Turton is confirmed for [Day], [Date] at [Time].
+   │    [Property Address if applicable]
+   │    Reply CONFIRM to confirm or RESCHEDULE to change.&quot;
+   │
+   ├─► Confirmation Email (detailed):
+   │   - Date, time, agent name + photo
+   │   - Office address or property address
+   │   - What to expect
+   │   - Agent mobile number
+   │   - Calendar invite attachment (.ics)
+
+[24 hours before]
+   ├─► Reminder SMS: 
+   │   &quot;Reminder: You have an appointment tomorrow at [Time] with [AgentName] — 
+   │    Diane Turton, Realtors. Looking forward to seeing you! 
+   │    Reply CONFIRM or call [number] to reschedule.&quot;
+   │
+   ├─► Reminder Email: Full details + Google Maps link
+
+[2 hours before]
+   └─► SMS: &quot;Heading out soon? Your showing/appointment is in 2 hours — 
+            see you at [address]! — [AgentName]&quot;
+
+[1 hour after appointment — agent task]
+   └─► Task: &quot;Post-appointment follow-up — log outcome in CRM&quot;
+
+[Day after appointment]
+   ├─► If outcome = &quot;Showed / No offer&quot;:
+   │   SMS: &quot;Thank you for your time yesterday, [FirstName]! 
+   │    Did anything stand out to you? Happy to pull more options 
+   │    based on your feedback.&quot;
+   │
+   └─► If outcome = &quot;No show&quot;:
+       SMS: &quot;Hi [FirstName] — we missed you today! 
+        No worries at all. Would you like to reschedule? 
+        Here's a link to find a time that works: [booking link]&quot;
+</code></pre>
+<hr />
+<h3>Workflow 5 — Post-Close Referral &amp; Review Workflow</h3>
+<p><strong>Trigger:</strong> Deal stage moved to "Closed"</p>
+<pre><code>[Day 1 after close]
+   ├─► Congratulations SMS from agent
+   └─► Congratulations Email (personal, warm tone)
+
+[Day 7]
+   └─► Email: &quot;Settling in? Here are some local resources you'll love&quot;
+       (local services, utilities, restaurants, home improvement contacts)
+
+[Day 30]
+   └─► SMS: &quot;Hope everything's going well in the new place! 
+        If you know anyone looking to buy or sell on the Shore, 
+        I'd love to help them the same way I helped you.&quot;
+
+[Day 45]
+   └─► Email: Google Review request with direct link
+
+[Day 90]
+   └─► Email: &quot;Your home's value update — 90 days in, here's where things stand&quot;
+
+[6 months]
+   └─► SMS: &quot;Happy 6 months in your new home! Still love it?&quot;
+
+[12 months]
+   └─► Email: &quot;Happy 1 year! Your home's current market value + 
+        annual market report for [area]&quot;
+</code></pre>
+<hr />
+<h2 id="sms-template-library">SMS Template Library</h2>
+<h3>Initial Buyer Outreach</h3>
+<blockquote>
+<p>"Hi [FirstName]! [AgentName] from Diane Turton Realtors here. I just received your request about homes in [Area]. I'd love to help — are you available for a quick 5-minute call today? Or reply here and I'll answer any questions!"</p>
+</blockquote>
+<h3>Initial Seller Outreach</h3>
+<blockquote>
+<p>"Hi [FirstName]! [AgentName] with Diane Turton here. I'm working on your home value analysis for [Address] right now. I'll have it ready shortly — can we schedule a quick call to walk through it together?"</p>
+</blockquote>
+<h3>Hot Lead Immediate Response</h3>
+<blockquote>
+<p>"[FirstName] — [AgentName] from Diane Turton. I literally just saw your inquiry come through. You free for a quick call right now? I don't want you to miss this one."</p>
+</blockquote>
+<h3>After-Hours Inquiry</h3>
+<blockquote>
+<p>"Hi [FirstName]! You reached out after hours — I have everything noted and will call you first thing at [time] tomorrow. In the meantime, here's a search you might like: [link] — [AgentName], Diane Turton Realtors"</p>
+</blockquote>
+<h3>Appointment Reschedule</h3>
+<blockquote>
+<p>"[FirstName] — we missed you today! Totally fine, life happens. Here's a link to pick a new time that works for you: [booking link] — looking forward to connecting!"</p>
+</blockquote>
+<hr />
+<h2 id="email-template-subjects">Email Template Subjects</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Template</th>
+<th>Subject Line</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Buyer Welcome</td>
+<td>"Your Jersey Shore home search starts here, [FirstName]"</td>
+</tr>
+<tr>
+<td>Seller Welcome</td>
+<td>"Your home value analysis — prepared by [AgentName]"</td>
+</tr>
+<tr>
+<td>New Listings</td>
+<td>"[X] new listings in [Area] — just for you"</td>
+</tr>
+<tr>
+<td>Market Update</td>
+<td>"[Town] real estate market — [Month] update"</td>
+</tr>
+<tr>
+<td>Appointment Confirm</td>
+<td>"Confirmed: Your appointment with [AgentName] on [Date]"</td>
+</tr>
+<tr>
+<td>Post-Close</td>
+<td>"Congratulations, [FirstName] — welcome home!"</td>
+</tr>
+<tr>
+<td>Review Request</td>
+<td>"[FirstName], would you share your experience?"</td>
+</tr>
+<tr>
+<td>Annual Value</td>
+<td>"Your home's value today — one year later"</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="pipeline-configuration">Pipeline Configuration</h2>
+<h3>Buyer Pipeline Stages</h3>
+<ol>
+<li>New Lead</li>
+<li>Contacted (SMS/Call Made)</li>
+<li>Qualified (Budget + Timeline Confirmed)</li>
+<li>Appointment Set</li>
+<li>Showing Completed</li>
+<li>Active Search</li>
+<li>Offer Made</li>
+<li>Under Contract</li>
+<li>Closed — Won</li>
+<li>Lost / Inactive</li>
+</ol>
+<h3>Seller Pipeline Stages</h3>
+<ol>
+<li>New Lead</li>
+<li>CMA Requested</li>
+<li>Listing Consultation Scheduled</li>
+<li>Listing Consultation Completed</li>
+<li>Listing Agreement Signed</li>
+<li>Active Listing</li>
+<li>Offer Received</li>
+<li>Under Contract</li>
+<li>Closed — Won</li>
+<li>Lost / Inactive</li>
+</ol>
+<h3>Rental Pipeline Stages</h3>
+<ol>
+<li>New Inquiry</li>
+<li>Contacted</li>
+<li>Qualified</li>
+<li>Showing Scheduled</li>
+<li>Application Submitted</li>
+<li>Lease Signed</li>
+<li>Closed</li>
+</ol>
+<hr />
+<p><em>Prepared by Omniscient — Real Estate Growth Intelligence</em><br />
+<em>Confidential. Built exclusively for Diane Turton, Realtors.</em></p></main>
+<a class="top" href="#" aria-label="Back to top">↑</a>
+<script src="tabs.js"></script>
+</body></html>

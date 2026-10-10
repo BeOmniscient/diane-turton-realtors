@@ -287,6 +287,10 @@
     .reveal-5 { animation-delay: .45s; }
     @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
   </style>
+<script>
+  // Phones land on the phone edition; add ?desktop to stay here.
+  (function(){try{if(location.search.indexOf('desktop')<0&&window.matchMedia('(max-width: 700px) and (pointer: coarse)').matches){location.replace('m/');}}catch(e){}})();
+</script>
 </head>
 <body>
 
@@ -363,6 +367,8 @@
       </div>
     </section>
   </main>
+
+  <p style="text-align:center;margin:8px 0 28px;font-size:13px"><a href="m/" style="color:inherit;opacity:.75">📱 Open the phone edition</a></p>
 
   <footer>
     <span class="confid">Confidential · Prepared for Diane Turton, Realtors</span>

@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0B1F3B">
+<title>Diane Turton, Realtors — Digital Report Card | Omniscient Marketing</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{
+  --omni-navy:#0B1F3B;
+  --omni-blue:#3A86FF;
+  --omni-light-blue:#EAF6FF;
+  --omni-teal:#2EC4B6;
+  --grade-a:#27AE60;
+  --grade-b:#2ECC71;
+  --grade-c:#F39C12;
+  --grade-d:#E67E22;
+  --grade-f:#E74C3C;
+  --grade-a-bg:#EAFAF1;
+  --grade-b-bg:#EDFDF5;
+  --grade-c-bg:#FEF9E7;
+  --grade-d-bg:#FEF5E7;
+  --grade-f-bg:#FDEDEC;
+  --bg:#FFFFFF;
+  --bg-soft:#F4F7FC;
+  --text:#0B1F3B;
+  --text-soft:#5C6B7C;
+  --border:#E2EAF3;
+  --s-1:8px;--s-2:16px;--s-3:24px;--s-4:32px;--s-5:48px;--s-6:64px;--s-7:96px;
+  --r-sm:6px;--r-md:10px;--r-lg:16px;--r-xl:24px;
+  --shadow-sm:0 1px 2px rgba(11,31,59,0.06);
+  --shadow-md:0 4px 12px rgba(11,31,59,0.08);
+  --shadow-lg:0 12px 32px rgba(11,31,59,0.12);
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+.container{max-width:1180px;margin:0 auto;padding:0 var(--s-3)}
+section{padding:var(--s-6) 0;border-bottom:1px solid var(--border)}
+section:last-of-type{border-bottom:none}
+h1{font-size:clamp(2rem,5vw,3.25rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;color:var(--omni-navy)}
+h2{font-size:clamp(1.5rem,3vw,2.125rem);font-weight:800;letter-spacing:-0.015em;color:var(--omni-navy);margin-bottom:var(--s-3)}
+h3{font-size:1.25rem;font-weight:700;color:var(--omni-navy)}
+h4{font-size:1.0625rem;font-weight:700;color:var(--omni-navy);margin-bottom:6px}
+p{color:var(--text-soft)}
+.eyebrow{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--omni-blue);margin-bottom:var(--s-1)}
+
+/* nav */
+.sticky-nav{position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:50}
+.nav-inner{max-width:1180px;margin:0 auto;padding:14px var(--s-3);display:flex;align-items:center;justify-content:space-between;gap:var(--s-2)}
+.nav-brand{display:flex;align-items:center;gap:var(--s-1);font-size:0.9375rem;flex-wrap:wrap}
+.nav-omni{font-weight:800;color:var(--omni-navy);letter-spacing:0.02em}
+.nav-divider{color:var(--text-soft);margin:0 4px}
+.nav-client{color:var(--text-soft);font-weight:500}
+.btn-download{background:var(--omni-navy);color:white;border:none;padding:10px 18px;border-radius:var(--r-sm);font-weight:600;cursor:pointer;font-family:inherit;font-size:0.875rem;transition:all 0.15s}
+.btn-download:hover{background:var(--omni-blue);transform:translateY(-1px)}
+
+/* hero */
+.hero{padding-top:var(--s-5);padding-bottom:var(--s-5)}
+.hero-top{display:grid;grid-template-columns:1fr auto;gap:var(--s-5);align-items:center;margin-bottom:var(--s-4)}
+@media (max-width:780px){.hero-top{grid-template-columns:1fr;text-align:left}}
+.hero-meta h1{margin-bottom:var(--s-2)}
+.hero-verdict{font-size:1.125rem;color:var(--text);line-height:1.5;margin-bottom:var(--s-3);max-width:680px}
+.hero-details{display:flex;gap:var(--s-2);flex-wrap:wrap;font-size:0.8125rem;color:var(--text-soft)}
+.hero-details span{padding:5px 12px;background:var(--bg-soft);border-radius:999px}
+.hero-grade-block{text-align:center}
+.grade-circle{width:170px;height:170px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;border:6px solid;box-shadow:var(--shadow-lg);margin:0 auto var(--s-1)}
+.grade-letter{font-size:4.75rem;font-weight:800;line-height:1}
+.grade-score{font-size:0.9375rem;font-weight:600;opacity:0.85}
+.grade-label{font-size:0.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft)}
+
+.grade-a{border-color:var(--grade-a);background:var(--grade-a-bg);color:var(--grade-a)}
+.grade-b{border-color:var(--grade-b);background:var(--grade-b-bg);color:var(--grade-b)}
+.grade-c{border-color:var(--grade-c);background:var(--grade-c-bg);color:var(--grade-c)}
+.grade-d{border-color:var(--grade-d);background:var(--grade-d-bg);color:var(--grade-d)}
+.grade-f{border-color:var(--grade-f);background:var(--grade-f-bg);color:var(--grade-f)}
+
+.hero-categories{display:grid;grid-template-columns:repeat(8,1fr);gap:var(--s-2);margin-top:var(--s-3)}
+@media (max-width:980px){.hero-categories{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:480px){.hero-categories{grid-template-columns:repeat(2,1fr)}}
+.mini-score{background:white;border:1px solid var(--border);border-radius:var(--r-md);padding:var(--s-2);text-align:center;transition:transform 0.15s,box-shadow 0.15s}
+.mini-score:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.mini-grade{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.0625rem;margin:0 auto 6px;border:2.5px solid}
+.mini-label{font-size:0.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-soft);margin-bottom:2px}
+.mini-num{font-weight:800;color:var(--omni-navy);font-size:0.9375rem}
+
+/* snapshot */
+.snapshot{margin-top:var(--s-4);padding:var(--s-4);background:var(--bg-soft);border-radius:var(--r-lg);border:1px solid var(--border)}
+.snap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-3)}
+@media (max-width:900px){.snap-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.snap-grid{grid-template-columns:1fr}}
+.snap-item{padding-right:var(--s-2)}
+.snap-label{font-size:0.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft);margin-bottom:6px}
+.snap-value{font-weight:700;font-size:0.9375rem;color:var(--omni-navy);line-height:1.4}
+.snap-value small{display:block;font-weight:500;font-size:0.75rem;color:var(--text-soft);margin-top:2px}
+
+/* scorecards */
+.scorecard-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-3);margin-top:var(--s-3)}
+@media (max-width:1100px){.scorecard-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:680px){.scorecard-grid{grid-template-columns:1fr}}
+.scorecard{background:white;border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--s-3);transition:transform 0.2s,box-shadow 0.2s;display:flex;flex-direction:column}
+.scorecard:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.scorecard-header{display:grid;grid-template-columns:auto 1fr auto;gap:var(--s-2);align-items:center;margin-bottom:var(--s-2)}
+.scorecard-icon{font-size:1.4rem;width:42px;height:42px;border-radius:var(--r-sm);background:var(--omni-light-blue);display:flex;align-items:center;justify-content:center}
+.scorecard-title{font-weight:700;color:var(--omni-navy);font-size:1.0625rem}
+.scorecard-weight{font-size:0.75rem;color:var(--text-soft)}
+.scorecard-grade{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.25rem;border:3px solid}
+
+.score-bar-wrap{display:flex;align-items:center;gap:var(--s-2);margin-bottom:var(--s-3)}
+.score-bar{flex:1;height:10px;background:var(--bg-soft);border-radius:999px;overflow:hidden}
+.score-fill{height:100%;border-radius:999px;transition:width 1s ease}
+.grade-a-fill{background:var(--grade-a)}
+.grade-b-fill{background:var(--grade-b)}
+.grade-c-fill{background:var(--grade-c)}
+.grade-d-fill{background:var(--grade-d)}
+.grade-f-fill{background:var(--grade-f)}
+.score-num{font-weight:800;font-size:0.9375rem;color:var(--omni-navy);min-width:62px;text-align:right}
+
+.sub-scores{display:flex;flex-direction:column;gap:8px;margin-bottom:var(--s-2)}
+.sub-score-row{display:grid;grid-template-columns:1fr 90px 50px;gap:var(--s-2);align-items:center;font-size:0.8125rem}
+.sub-score-row span:first-child{color:var(--text-soft)}
+.sub-bar{height:5px;background:var(--bg-soft);border-radius:999px;overflow:hidden}
+.sub-bar div{height:100%;background:var(--omni-blue);border-radius:999px;transition:width 1s ease}
+.sub-num{text-align:right;font-weight:600;font-size:0.75rem;color:var(--omni-navy)}
+
+.findings{margin-top:var(--s-2);padding-top:var(--s-2);border-top:1px solid var(--border)}
+.findings-title{font-size:0.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft);margin-bottom:var(--s-1)}
+.findings ul{list-style:none;padding:0}
+.findings li{font-size:0.8125rem;color:var(--text);line-height:1.5;padding-left:14px;position:relative;margin-bottom:6px}
+.findings li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;background:var(--omni-blue);border-radius:50%}
+
+.opportunity{margin-top:var(--s-2);padding:var(--s-2);background:var(--omni-light-blue);border-left:3px solid var(--omni-blue);border-radius:var(--r-sm);display:grid;grid-template-columns:auto 1fr;gap:var(--s-1);font-size:0.8125rem;color:var(--omni-navy);line-height:1.5;margin-top:auto}
+.opp-icon{font-weight:800;color:var(--omni-blue);font-size:1.0625rem;line-height:1}
+.opportunity strong{color:var(--omni-navy);font-weight:700}
+
+/* tracking panel */
+.tracking-panel{background:linear-gradient(135deg,var(--omni-navy) 0%,#152a4a 100%);color:white}
+.tracking-panel h2{color:white}
+.tracking-panel .eyebrow{color:var(--omni-teal)}
+.tracking-panel p{color:rgba(255,255,255,0.78)}
+.tracking-stack{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-2);margin-top:var(--s-3)}
+@media (max-width:900px){.tracking-stack{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.tracking-stack{grid-template-columns:1fr}}
+.tag-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:var(--r-md);padding:var(--s-2);transition:background 0.15s}
+.tag-card:hover{background:rgba(255,255,255,0.08)}
+.tag-head{display:flex;align-items:center;justify-content:space-between;gap:var(--s-1);margin-bottom:6px}
+.tag-name{font-weight:700;font-size:0.9375rem;color:white}
+.tag-status{font-size:0.625rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;padding:3px 8px;border-radius:999px;white-space:nowrap}
+.status-detected{background:rgba(46,196,182,0.2);color:var(--omni-teal)}
+.status-legacy{background:rgba(243,156,18,0.2);color:#F4B452}
+.status-missing{background:rgba(231,76,60,0.2);color:#FF8079}
+.tag-impact{font-size:0.75rem;color:rgba(255,255,255,0.7);line-height:1.5}
+
+.tracking-summary{margin-top:var(--s-4);padding:var(--s-3);background:rgba(255,255,255,0.05);border-radius:var(--r-md);font-size:0.875rem;color:rgba(255,255,255,0.85);line-height:1.6}
+.tracking-summary strong{color:var(--omni-teal)}
+
+/* platforms */
+.platform-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-2);margin-top:var(--s-3)}
+@media (max-width:900px){.platform-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.platform-grid{grid-template-columns:1fr}}
+.platform-card{background:white;border:1px solid var(--border);border-radius:var(--r-md);padding:var(--s-2);font-size:0.875rem;transition:transform 0.15s}
+.platform-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.platform-icon{width:34px;height:34px;border-radius:var(--r-sm);background:var(--bg-soft);display:flex;align-items:center;justify-content:center;font-size:1.125rem;margin-bottom:8px}
+.platform-name{font-weight:700;color:var(--omni-navy);font-size:0.9375rem;margin-bottom:2px}
+.platform-stat{font-size:0.75rem;color:var(--text-soft);line-height:1.4}
+.platform-presence{display:inline-block;font-size:0.625rem;font-weight:700;padding:2px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:0.06em;margin-top:6px}
+.presence-active{background:var(--grade-a-bg);color:var(--grade-a)}
+.presence-weak{background:var(--grade-c-bg);color:var(--grade-c)}
+.presence-absent{background:var(--grade-f-bg);color:var(--grade-f)}
+
+/* reputation */
+.rep-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--s-4);margin-top:var(--s-3);align-items:start}
+@media (max-width:900px){.rep-grid{grid-template-columns:1fr}}
+.rep-chart-wrap{background:white;border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--s-3);min-height:340px}
+.rep-list{display:flex;flex-direction:column;gap:var(--s-2)}
+.rep-item{background:white;border:1px solid var(--border);border-radius:var(--r-md);padding:var(--s-2);display:grid;grid-template-columns:1fr auto;gap:var(--s-2);align-items:center;font-size:0.875rem}
+.rep-platform{font-weight:700;color:var(--omni-navy)}
+.rep-detail{font-size:0.75rem;color:var(--text-soft);margin-top:2px}
+.rep-rating{text-align:right;font-weight:800;font-size:0.9375rem;color:var(--omni-navy)}
+.rep-rating small{display:block;font-weight:500;font-size:0.6875rem;color:var(--text-soft);margin-top:2px}
+
+/* AI section */
+.ai-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-3);margin-top:var(--s-3)}
+@media (max-width:780px){.ai-grid{grid-template-columns:1fr}}
+.ai-card{background:white;border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--s-3)}
+.ai-card-head{display:grid;grid-template-columns:auto 1fr auto;gap:var(--s-2);align-items:center;margin-bottom:var(--s-2)}
+.ai-icon{font-size:1.4rem;width:38px;height:38px;border-radius:var(--r-sm);background:var(--omni-light-blue);display:flex;align-items:center;justify-content:center}
+.ai-card-title{font-weight:700;color:var(--omni-navy);font-size:1rem}
+.ai-score-pill{font-size:0.625rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;padding:4px 10px;border-radius:999px}
+.ai-score-pill.strong{background:var(--grade-a-bg);color:var(--grade-a)}
+.ai-score-pill.weak{background:var(--grade-d-bg);color:var(--grade-d)}
+.ai-score-pill.absent{background:var(--grade-f-bg);color:var(--grade-f)}
+.ai-card p{font-size:0.875rem;color:var(--text);line-height:1.55}
+
+/* competitors */
+.competitor-table{width:100%;border-collapse:collapse;font-size:0.875rem;min-width:1020px}
+.competitor-table th{background:var(--omni-navy);color:white;text-align:left;padding:12px 14px;font-weight:700;font-size:0.8125rem;text-transform:uppercase;letter-spacing:0.04em}
+.competitor-table th.client-col{background:var(--omni-blue)}
+.competitor-table td{padding:12px 14px;border-bottom:1px solid var(--border);font-size:0.8125rem}
+.competitor-table td{color:var(--text)}
+.competitor-table td:first-child{font-weight:600;color:var(--text-soft);font-size:0.8125rem;width:170px}
+.competitor-table .client-col{background:var(--omni-light-blue);font-weight:700;color:var(--omni-navy)}
+.competitor-table tr:last-child td{border-bottom:none}
+.metric-good{color:var(--grade-a);font-weight:700}
+.metric-warn{color:var(--grade-c);font-weight:700}
+.metric-bad{color:var(--grade-f);font-weight:700}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--r-md);border:1px solid var(--border);background:white;box-shadow:inset -8px 0 8px -8px rgba(11,31,59,0.15);margin-top:var(--s-3)}
+.table-hint{font-size:0.75rem;color:var(--text-soft);margin-top:8px;display:none}
+@media (max-width:1100px){.table-hint{display:block}}
+
+.comp-summary{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s-2);margin-top:var(--s-3)}
+@media (max-width:1100px){.comp-summary{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.comp-summary{grid-template-columns:1fr}}
+.comp-card{background:white;border:1px solid var(--border);border-radius:var(--r-md);padding:var(--s-2);font-size:0.875rem}
+.comp-card.is-client{border:2px solid var(--omni-blue);background:var(--omni-light-blue)}
+.comp-name{font-weight:800;font-size:0.9375rem;margin-bottom:6px;color:var(--omni-navy);line-height:1.3}
+.comp-loc{font-size:0.75rem;color:var(--text-soft);margin-bottom:var(--s-1)}
+.comp-stat{font-size:0.75rem;color:var(--text);line-height:1.55}
+.comp-stat strong{color:var(--omni-navy)}
+
+/* opportunities */
+#opportunities{background:linear-gradient(135deg,var(--omni-navy) 0%,#152a4a 100%);color:white}
+#opportunities h2{color:white}
+#opportunities .eyebrow{color:var(--omni-teal)}
+#opportunities p.intro{color:rgba(255,255,255,0.78);max-width:680px;margin-top:var(--s-1)}
+.opp-list{display:grid;grid-template-columns:1fr;gap:var(--s-2);margin-top:var(--s-3)}
+.opp-item{display:grid;grid-template-columns:80px 1fr;gap:var(--s-3);padding:var(--s-3);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-md);transition:background 0.2s}
+.opp-item:hover{background:rgba(255,255,255,0.08)}
+@media (max-width:600px){.opp-item{grid-template-columns:1fr;gap:var(--s-1)}}
+.opp-number{font-size:2.5rem;font-weight:900;color:var(--omni-teal);line-height:1;letter-spacing:-0.02em}
+.opp-content h4{color:white;margin-bottom:6px}
+.opp-content p{color:rgba(255,255,255,0.78);font-size:0.9375rem;margin-bottom:var(--s-1)}
+.opp-impact{display:inline-block;font-size:0.75rem;font-weight:700;padding:4px 10px;border-radius:999px;background:rgba(46,196,182,0.18);color:var(--omni-teal);text-transform:uppercase;letter-spacing:0.06em}
+
+/* CTA */
+#cta{background:var(--bg-soft)}
+.cta-inner{max-width:680px;margin:0 auto;text-align:center}
+.cta-inner h2{margin-bottom:var(--s-2)}
+.cta-inner p{margin-bottom:var(--s-3)}
+.btn{display:inline-block;padding:14px 28px;border-radius:var(--r-sm);font-weight:700;font-size:0.9375rem;text-decoration:none;border:none;cursor:pointer;font-family:inherit;transition:transform 0.15s,box-shadow 0.15s;margin:0 6px}
+.btn-primary{background:var(--omni-blue);color:white}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);background:#2A6FE0}
+.btn-ghost{background:transparent;color:var(--omni-navy);border:1.5px solid var(--omni-navy)}
+.btn-ghost:hover{background:var(--omni-navy);color:white}
+
+footer{background:var(--omni-navy);color:rgba(255,255,255,0.65);padding:var(--s-3) 0;font-size:0.8125rem}
+footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--s-2)}
+footer strong{color:white}
+
+/* print */
+@media print{
+  .sticky-nav,.no-print,.btn-download,.btn{display:none !important}
+  section{page-break-inside:avoid;border-bottom:1px solid #ccc;padding:24px 0}
+  body{background:white;color:black;font-size:10pt}
+  .scorecard-grid{grid-template-columns:repeat(2,1fr)}
+  #opportunities{background:#f0f0f0 !important;color:black !important}
+  #opportunities h2,.opp-content h4{color:black !important}
+  .opp-content p{color:#444 !important}
+  .opp-number{color:#666 !important}
+  h2,h3,h4{color:black !important}
+  .grade-circle{border-width:3px}
+  a{color:inherit;text-decoration:none}
+  .tracking-panel{background:#1a1a1a !important}
+  #opportunities .eyebrow{color:#444 !important}
+  .competitor-table{min-width:auto !important;font-size:8pt !important}
+  .competitor-table th,.competitor-table td{padding:6px 8px !important}
+  .table-wrap{overflow:visible !important;box-shadow:none !important}
+  .table-hint{display:none !important}
+  #competitors{page-break-before:always}
+}
+</style>
+
+<style>
+/* phone-edition overrides */
+:root{--safe-b:env(safe-area-inset-bottom,0px)}
+html,body{overflow-x:hidden}
+body{padding-bottom:calc(72px + var(--safe-b))}
+.pnav{display:flex;align-items:center;gap:12px;padding:10px 16px;padding-top:calc(10px + env(safe-area-inset-top,0px));background:rgba(11,31,59,.95)!important;border-bottom:0!important}
+.pback{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.1);color:#fff;text-decoration:none;font-size:22px;flex:none}
+.ptitle{flex:1;color:#fff;font-weight:700;font-size:15px;line-height:1.15}
+.ptitle small{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#C8A96E;font-weight:600;margin-top:3px}
+.pdl{flex:none;height:40px;padding:0 14px;border-radius:12px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;font:700 13px inherit;font-family:inherit}
+canvas{max-width:100%!important}
+table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-template-columns:repeat(5,1fr);height:calc(64px + var(--safe-b));padding-bottom:var(--safe-b);background:rgba(255,255,255,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid #E4DCCF;font-family:Inter,system-ui,sans-serif}
+.tabs a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6B7480;font-size:10.5px;font-weight:600}
+.tabs a svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tabs a[aria-current="page"]{color:#0F2D52}.tabs a[aria-current="page"] svg{stroke:#C8A96E}
+@media print{.tabs,.pnav{display:none!important}body{padding-bottom:0}}
+</style>
+</head>
+<body data-tab="report">
+
+<!-- 1. Phone nav -->
+<nav class="sticky-nav no-print pnav">
+  <a class="pback" href="index.html" aria-label="Back to hub">&#8249;</a>
+  <div class="ptitle">Digital Report Card<small>Diane Turton, Realtors</small></div>
+  <button class="pdl" onclick="window.print()" aria-label="Save as PDF">PDF</button>
+</nav>
+
+<!-- 2. Hero -->
+<section class="hero" style="border-bottom:1px solid var(--border)">
+  <div class="container">
+    <div class="hero-top">
+      <div class="hero-meta">
+        <div class="eyebrow">Digital Report Card</div>
+        <h1>Diane Turton, Realtors</h1>
+        <p class="hero-verdict">A 41-year Jersey Shore institution with elite agents, deep awards, and a magnetic founder — but the digital infrastructure beneath the brand has not kept pace with its market dominance.</p>
+        <div class="hero-details">
+          <span>Real Estate Brokerage</span>
+          <span>Wall Township, NJ</span>
+          <span>Monmouth + Ocean Counties</span>
+          <span>Scanned April 30, 2026</span>
+        </div>
+      </div>
+      <div class="hero-grade-block">
+        <div class="grade-circle grade-d">
+          <span class="grade-letter">D</span>
+          <span class="grade-score">56/100</span>
+        </div>
+        <div class="grade-label">Overall Grade</div>
+      </div>
+    </div>
+
+    <div class="hero-categories">
+      <div class="mini-score"><div class="mini-grade grade-b">B</div><div class="mini-label">Website</div><div class="mini-num">70</div></div>
+      <div class="mini-score"><div class="mini-grade grade-f">F</div><div class="mini-label">Tracking</div><div class="mini-num">32</div></div>
+      <div class="mini-score"><div class="mini-grade grade-d">D</div><div class="mini-label">Social</div><div class="mini-num">58</div></div>
+      <div class="mini-score"><div class="mini-grade grade-f">F</div><div class="mini-label">Reviews</div><div class="mini-num">48</div></div>
+      <div class="mini-score"><div class="mini-grade grade-c">C</div><div class="mini-label">Local SEO</div><div class="mini-num">62</div></div>
+      <div class="mini-score"><div class="mini-grade grade-d">D</div><div class="mini-label">AI Search</div><div class="mini-num">55</div></div>
+      <div class="mini-score"><div class="mini-grade grade-c">C</div><div class="mini-label">Comp Pos.</div><div class="mini-num">68</div></div>
+      <div class="mini-score"><div class="mini-grade grade-b">B</div><div class="mini-label">Press</div><div class="mini-num">70</div></div>
+    </div>
+
+    <!-- Company snapshot -->
+    <div class="snapshot">
+      <div class="eyebrow" style="margin-bottom:var(--s-2)">Company Snapshot</div>
+      <div class="snap-grid">
+        <div class="snap-item">
+          <div class="snap-label">Ownership</div>
+          <div class="snap-value">Diane Turton<br><small>Founder &amp; President · Family-owned, independent</small></div>
+        </div>
+        <div class="snap-item">
+          <div class="snap-label">Founded</div>
+          <div class="snap-value">1985<br><small>First office in Bay Head, NJ</small></div>
+        </div>
+        <div class="snap-item">
+          <div class="snap-label">Sales Associates</div>
+          <div class="snap-value">~350<br><small>Across 13–16 regional offices</small></div>
+        </div>
+        <div class="snap-item">
+          <div class="snap-label">Sales Volume</div>
+          <div class="snap-value">$575.5M<br><small>781 transaction sides · RealTrends</small></div>
+        </div>
+        <div class="snap-item">
+          <div class="snap-label">Service Area</div>
+          <div class="snap-value">Jersey Shore<br><small>Monmouth · Ocean · Middlesex</small></div>
+        </div>
+        <div class="snap-item">
+          <div class="snap-label">Corporate HQ</div>
+          <div class="snap-value">2383 Route 34 S<br><small>Wall Township, NJ 08736</small></div>
+        </div>
+        <div class="snap-item">
+          <div class="snap-label">Key Affiliations</div>
+          <div class="snap-value">LeadingRE<br><small>Luxury Portfolio · Who's Who · Board of Regents</small></div>
+        </div>
+        <div class="snap-item">
+          <div class="snap-label">Sister Companies</div>
+          <div class="snap-value">Turton Signature Title<br><small>Turton Signature Insurance</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Category scorecards -->
+<section id="scorecards">
+  <div class="container">
+    <div class="eyebrow">Category Breakdown</div>
+    <h2>Where you stand — across eight categories</h2>
+    <div class="scorecard-grid">
+
+      <!-- Reviews -->
+      <div class="scorecard">
+        <div class="scorecard-header">
+          <div class="scorecard-icon">⭐</div>
+          <div>
+            <div class="scorecard-title">Reviews &amp; Reputation</div>
+            <div class="scorecard-weight">20% of overall · Multi-platform</div>
+          </div>
+          <div class="scorecard-grade grade-f">F</div>
+        </div>
+        <div class="score-bar-wrap">
+          <div class="score-bar"><div class="score-fill grade-f-fill" style="width:48%"></div></div>
+          <div class="score-num">48/100</div>
+        </div>
+        <div class="sub-scores">
+          <div class="sub-score-row"><span>Avg star rating (agent-level strong)</span><div class="sub-bar"><div style="width:60%"></div></div><span class="sub-num">18/30</span></div>
+          <div class="sub-score-row"><span>Review volume (brand-level)</span><div class="sub-bar"><div style="width:32%"></div></div><span class="sub-num">8/25</span></div>
+          <div class="sub-score-row"><span>Platform coverage</span><div class="sub-bar"><div style="width:60%"></div></div><span class="sub-num">12/20</span></div>
+          <div class="sub-score-row"><span>Response rate</span><div class="sub-bar"><div style="width:33%"></div></div><span class="sub-num">5/15</span></div>
+          <div class="sub-score-row"><span>Recency</span><div class="sub-bar"><div style="width:50%"></div></div><span class="sub-num">5/10</span></div>
+        </div>
+        <div class="findings">
+          <div class="findings-title">Key Findings</div>
+          <ul>
+            <li>Agent-level reviews are excellent (NJ Realtors Circle of Excellence Gold/Platinum, Five-Star Pro 15+ years for top producers)</li>
+            <li>Brand-level Yelp listings exist for major offices but appear unclaimed with single-digit reviews</li>
+            <li>No unified Google Business Profile review surface aggregating the 13-office network</li>
+            <li>Zillow agent profiles show 4.9–5.0 ratings but no brokerage profile</li>
+            <li>Indeed shows positive employer sentiment ("family-owned, stellar reputation"), but employee reviews ≠ client reviews</li>
+          </ul>
+        </div>
+        <div class="opportunity">
+          <div class="opp-icon">→</div>
+          <div><strong>Top opportunity:</strong> Agent-level goodwill is huge — a centralized brand review program would consolidate ~350 agents' five-star reputation into one searchable Google ecosystem.</div>
+        </div>
+      </div>
+
+      <!-- Website -->
+      <div class="scorecard">
+        <div class="scorecard-header">
+          <div class="scorecard-icon">🌐</div>
+          <div>
+            <div class="scorecard-title">Website</div>
+            <div class="scorecard-weight">15% of overall · Lone Wolf / Propertybase</div>
+          </div>
+          <div class="scorecard-grade grade-b">B</div>
+        </div>
+        <div class="score-bar-wrap">
+          <div class="score-bar"><div class="score-fill grade-b-fill" style="width:70%"></div></div>
+          <div class="score-num">70/100</div>
+        </div>
+        <div class="sub-scores">
+          <div class="sub-score-row"><span>Homepage / first impression</span><div class="sub-bar"><div style="width:70%"></div></div><span class="sub-num">14/20</span></div>
+          <div class="sub-score-row"><span>Mobile responsiveness</span><div class="sub-bar"><div style="width:90%"></div></div><span class="sub-num">18/20</span></div>
+          <div class="sub-score-row"><span>SEO basics</span><div class="sub-bar"><div style="width:60%"></div></div><span class="sub-num">12/20</span></div>
+          <div class="sub-score-row"><span>Conversion elements</span><div class="sub-bar"><div style="width:70%"></div></div><span class="sub-num">14/20</span></div>
+          <div class="sub-score-row"><span>Technical health</span><div class="sub-bar"><div style="width:60%"></div></div><span class="sub-num">6/10</span></div>
+          <div class="sub-score-row"><span>Content &amp; freshness</span><div class="sub-bar"><div style="width:60%"></div></div><span class="sub-num">6/10</span></div>
+        </div>
+        <div class="findings">
+          <div class="findings-title">Key Findings</div>
+          <ul>
+            <li>Built on Lone Wolf / Propertybase (Salesforce-based real estate platform) with Fastly CDN — solid technical baseline</li>
+            <li>Hero features 13 office video cards (Lavallette, Spring Lake, Bay Head, etc.) — premium polish</li>
+            <li>Featured listings carousel showcases $3.7M–$15.9M inventory — visual luxury positioning</li>
+            <li>SEO is shallow: thin meta descriptions, generic page titles, weak H1 hierarchy</li>
+            <li>No above-the-fold lead capture; "How Much Is My Home Worth?" CTA buried in nav</li>
+            <li>Content velocity is low — no visible blog, no recent buyer/seller editorial</li>
+          </ul>
+        </div>
+        <div class="opportunity">
+          <div class="opp-icon">→</div>
+          <div><strong>Top opportunity:</strong> Strong foundation — SEO depth, structured CTA architecture, and content velocity would compound results.</div>
+        </div>
+      </div>
+
+      <!-- Tracking -->
+      <div class="scorecard">
+        <div class="scorecard-header">
+          <div class="scorecard-icon">📊</div>
+          <div>
+            <div class="scorecard-title">Tracking &amp; Pixel Stack</div>
+            <div class="scorecard-weight">15% of overall · Detailed audit below</div>
+          </div>
+          <div class="scorecard-grade grade-f">F</div>
+        </div>
+        <div class="score-bar-wrap">
+          <div class="score-bar"><div class="score-fill grade-f-fill" style="width:32%"></div></div>
+          <div class="score-num">32/100</div>
+        </div>
+        <div class="sub-scores">
+          <div class="sub-score-row"><span>Analytics foundation</span><div class="sub-bar"><div style="width:50%"></div></div><span class="sub-num">10/20</span></div>
+          <div class="sub-score-row"><span>Tag management (GTM)</span><div class="sub-bar"><div style="width:0%"></div></div><span class="sub-num">0/15</span></div>
+          <div class="sub-score-row"><span>Ad pixels (Meta/LI/Google)</span><div class="sub-bar"><div style="width:30%"></div></div><span class="sub-num">6/20</span></div>
+          <div class="sub-score-row"><span>Server-side / CAPI</span><div class="sub-bar"><div style="width:0%"></div></div><span class="sub-num">0/10</span></div>
+          <div class="sub-score-row"><span>CRM integration</span><div class="sub-bar"><div style="width:50%"></div></div><span class="sub-num">5/10</span></div>
+          <div class="sub-score-row"><span>Schema markup</span><div class="sub-bar"><div style="width:27%"></div></div><span class="sub-num">4/15</span></div>
+          <div class="sub-score-row"><span>Privacy / consent</span><div class="sub-bar"><div style="width:70%"></div></div><span class="sub-num">7/10</span></div>
+        </div>
+        <div class="findings">
+          <div class="findings-title">Key Findings</div>
+          <ul>
+            <li>Facebook Pixel detected (per BuiltWith-class signals) — but no LinkedIn Insight, Google Ads, or TikTok pixels</li>
+            <li>No Google Tag Manager container detected — all tracking is hard-coded or platform-default</li>
+            <li>DoubleClick/Google Marketing Platform activity pixel visible (likely from Lone Wolf default)</li>
+            <li>No Meta Conversions API or server-side tracking — losing iOS 14.5+ signal fidelity</li>
+            <li>Schema is platform-default Org-level only; no LocalBusiness schema per office, no Review schema</li>
+            <li>SMS opt-in language present, suggesting some CRM exists — but no HubSpot/Marketo signature found</li>
+          </ul>
+        </div>
+        <div class="opportunity">
+          <div class="opp-icon">→</div>
+          <div><strong>Top opportunity:</strong> A 13-office regional leader with luxury inventory should be running modern attribution — Meta CAPI, GA4 + GTM, and LocalBusiness schema for every office would unlock 30–40% more attributable conversions.</div>
+        </div>
+      </div>
+
+      <!-- Social -->
+      <div class="scorecard">
+        <div class="scorecard-header">
+          <div class="scorecard-icon">📱</div>
+          <div>
+            <div class="scorecard-title">Social Media</div>
+            <div class="scorecard-weight">15% of overall · 4 platforms</div>
+          </div>
+          <div class="scorecard-grade grade-d">D</div>
+        </div>
+        <div class="score-bar-wrap">
+          <div class="score-bar"><div class="score-fill grade-d-fill" style="width:58%"></div></div>
+          <div class="score-num">58/100</div>
+        </div>
+        <div class="sub-scores">
+          <div class="sub-score-row"><span>Platform coverage</span><div class="sub-bar"><div style="width:60%"></div></div><span class="sub-num">15/25</span></div>
+          <div class="sub-score-row"><span>Posting frequency</span><div class="sub-bar"><div style="width:60%"></div></div><span class="sub-num">15/25</span></div>
+          <div class="sub-score-row"><span>Follower scale (vs. 350-agent peer)</span><div class="sub-bar"><div style="width:40%"></div></div><span class="sub-num">8/20</span></div>
+          <div class="sub-score-row"><span>Content quality</span><div class="sub-bar"><div style="width:80%"></div></div><span class="sub-num">12/15</span></div>
+          <div class="sub-score-row"><span>Engagement signals</span><div class="sub-bar"><div style="width:53%"></div></div><span class="sub-num">8/15</span></div>
+        </div>
+        <div class="findings">
+          <div class="findings-title">Key Findings</div>
+          <ul>
+            <li>Instagram @dianeturton.realtors at 1,693 followers / 1,126 posts — active cadence, professional creative</li>
+            <li>Facebook master page at 2,294 likes — under-indexed for a 350-agent shore brand (peers run 5K–15K+)</li>
+            <li>LinkedIn at 751 followers — extremely low for a $99M brokerage with 350 licensed professionals</li>
+            <li>YouTube channel exists but cadence is sparse; no captioned long-form content</li>
+            <li>Per-office IG accounts (Asbury Park 924, others) exist but operate as silos with no central amplification</li>
+            <li>No master-brand TikTok presence in a market where Sotheby's and KW competitors are leaning hard into short-form</li>
+          </ul>
+        </div>
+        <div class="opportunity">
+          <div class="opp-icon">→</div>
+          <div><strong>Top opportunity:</strong> Follower scale is dramatically below peer benchmark — a corporate social system that pulls in agent content and amplifies it would 5x reach without burdening agents.</div>
+        </div>
+      </div>
+
+      <!-- AI Visibility -->
+      <div class="scorecard">
+        <div class="scorecard-header">
+          <div class="scorecard-icon">🤖</div>
+          <div>
+            <div class="scorecard-title">AI Search Visibility</div>
+            <div class="scorecard-weight">10% of overall · LLMs &amp; AI Overviews</div>
+          </div>
+          <div class="scorecard-grade grade-d">D</div>
+        </div>
+        <div class="score-bar-wrap">
+          <div class="score-bar"><div class="score-fill grade-d-fill" style="width:55%"></div></div>
+          <div class="score-num">55/100</div>
+        </div>
+        <div class="sub-scores">
+          <div class="sub-score-row"><span>LLM brand recognition</span><div class="sub-bar"><div style="width:72%"></div></div><span class="sub-num">18/25</span></div>
+          <div class="sub-score-row"><span>Authoritative citations</span><div class="sub-bar"><div style="width:48%"></div></div><span class="sub-num">12/25</span></div>
+          <div class="sub-score-row"><span>Structured data signal</span><div class="sub-bar"><div style="width:30%"></div></div><span class="sub-num">6/20</span></div>
+          <div class="sub-score-row"><span>Reddit / forum surface</span><div class="sub-bar"><div style="width:50%"></div></div><span class="sub-num">5/10</span></div>
+          <div class="sub-score-row"><span>YouTube / video transcripts</span><div class="sub-bar"><div style="width:50%"></div></div><span class="sub-num">5/10</span></div>
+          <div class="sub-score-row"><span>AI Overviews / Perplexity</span><div class="sub-bar"><div style="width:90%"></div></div><span class="sub-num">9/10</span></div>
+        </div>
+        <div class="findings">
+          <div class="findings-title">Key Findings</div>
+          <ul>
+            <li>LLMs return accurate top-line facts (founded 1985, NJ shore, family-owned, Asbury Park awards)</li>
+            <li>No Wikipedia entry exists for Diane Turton or Diane Turton, Realtors — major authority gap</li>
+            <li>Crunchbase profile exists but is sparse and unmaintained</li>
+            <li>RISMedia 2024 Newsmaker article and Rider University alumni feature give AI engines credible source material</li>
+            <li>Schema is minimal — no LocalBusiness markup per office, no Person schema for the founder</li>
+            <li>"Always Connecting" Amazon book + audiobook is a strong AI-citation surface but underleveraged</li>
+          </ul>
+        </div>
+        <div class="opportunity">
+          <div class="opp-icon">→</div>
+          <div><strong>Top opportunity:</strong> AI sees the brand but doesn't cite it confidently — schema, a Wikipedia entry, and structured author citations for Diane Turton's book would close the gap fast.</div>
+        </div>
+      </div>
+
+      <!-- Local SEO -->
+      <div class="scorecard">
+        <div class="scorecard-header">
+          <div class="scorecard-icon">📍</div>
+          <div>
+            <div class="scorecard-title">Local SEO</div>
+            <div class="scorecard-weight">10% of overall · 13 offices</div>
+          </div>
+          <div class="scorecard-grade grade-c">C</div>
+        </div>
+        <div class="score-bar-wrap">
+          <div class="score-bar"><div class="score-fill grade-c-fill" style="width:62%"></div></div>
+          <div class="score-num">62/100</div>
+        </div>
+        <div class="sub-scores">
+          <div class="sub-score-row"><span>Map pack presence</span><div class="sub-bar"><div style="width:50%"></div></div><span class="sub-num">15/30</span></div>
+          <div class="sub-score-row"><span>GBP completeness</span><div class="sub-bar"><div style="width:56%"></div></div><span class="sub-num">14/25</span></div>
+          <div class="sub-score-row"><span>Citation consistency</span><div class="sub-bar"><div style="width:60%"></div></div><span class="sub-num">12/20</span></div>
+          <div class="sub-score-row"><span>Knowledge panel</span><div class="sub-bar"><div style="width:80%"></div></div><span class="sub-num">12/15</span></div>
+          <div class="sub-score-row"><span>Local content</span><div class="sub-bar"><div style="width:90%"></div></div><span class="sub-num">9/10</span></div>
+        </div>
+        <div class="findings">
+          <div class="findings-title">Key Findings</div>
+          <ul>
+            <li>Strong knowledge panel triggers on "Diane Turton, Realtors" branded search</li>
+            <li>13 office GBP listings exist but several appear under-optimized (limited photos, Q&amp;A, posts)</li>
+            <li>Yelp listings for Wall, Toms River, PPB, Beach Haven are unclaimed</li>
+            <li>Citation inconsistency: RealTrends "15 offices Wall NJ" vs LinkedIn "Toms River HQ" vs site copy</li>
+            <li>Localized office pages on dianeturton.com are well-organized — strong local content asset</li>
+          </ul>
+        </div>
+        <div class="opportunity">
+          <div class="opp-icon">→</div>
+          <div><strong>Top opportunity:</strong> Citation consistency is the biggest wedge — claimed/optimized GBPs across all 13 offices would compound map-pack visibility in every Jersey Shore market.</div>
+        </div>
+      </div>
+
+      <!-- Competitor Position -->
+      <div class="scorecard">
+        <div class="scorecard-header">
+          <div class="scorecard-icon">🏆</div>
+          <div>
+            <div class="scorecard-title">Competitor Position</div>
+            <div class="scorecard-weight">10% of overall · vs. 5 named rivals</div>
+          </div>
+          <div class="scorecard-grade grade-c">C</div>
+        </div>
+        <div class="score-bar-wrap">
+          <div class="score-bar"><div class="score-fill grade-c-fill" style="width:68%"></div></div>
+          <div class="score-num">68/100</div>
+        </div>
+        <div class="sub-scores">
+          <div class="sub-score-row"><span>Market position (closed volume)</span><div class="sub-bar"><div style="width:90%"></div></div><span class="sub-num">9/10</span></div>
+          <div class="sub-score-row"><span>Review rating vs comp</span><div class="sub-bar"><div style="width:60%"></div></div><span class="sub-num">15/25</span></div>
+          <div class="sub-score-row"><span>Review volume vs comp</span><div class="sub-bar"><div style="width:60%"></div></div><span class="sub-num">12/20</span></div>
+          <div class="sub-score-row"><span>Social following vs comp</span><div class="sub-bar"><div style="width:50%"></div></div><span class="sub-num">10/20</span></div>
+          <div class="sub-score-row"><span>Website quality vs comp</span><div class="sub-bar"><div style="width:67%"></div></div><span class="sub-num">10/15</span></div>
+          <div class="sub-score-row"><span>Tracking sophistication vs comp</span><div class="sub-bar"><div style="width:40%"></div></div><span class="sub-num">4/10</span></div>
+        </div>
+        <div class="findings">
+          <div class="findings-title">Key Findings</div>
+          <ul>
+            <li>#1 closed volume in most Monmouth/Ocean markets — Wall #1 for seven consecutive years</li>
+            <li>Outguns franchise competitors (Coldwell Banker, KW) on local brand love and Asbury Park readers' choice</li>
+            <li>Loses on global luxury exposure to Sotheby's network (Childers + Heritage House)</li>
+            <li>Loses on franchise scale and digital tooling to KW Command, Coldwell Banker CBx, BHHS Forever Agents</li>
+            <li>Family-owned independence is a genuine moat in a market consolidating around national franchises</li>
+          </ul>
+        </div>
+        <div class="opportunity">
+          <div class="opp-icon">→</div>
+          <div><strong>Top opportunity:</strong> Diane Turton has the strongest local brand and #1 closed volume — a modern marketing infrastructure would translate that into $-volume defense before Sotheby's and Compass close the digital gap.</div>
+        </div>
+      </div>
+
+      <!-- News & Press -->
+      <div class="scorecard">
+        <div class="scorecard-header">
+          <div class="scorecard-icon">📰</div>
+          <div>
+            <div class="scorecard-title">News &amp; Press</div>
+            <div class="scorecard-weight">5% of overall · Trade + local</div>
+          </div>
+          <div class="scorecard-grade grade-b">B</div>
+        </div>
+        <div class="score-bar-wrap">
+          <div class="score-bar"><div class="score-fill grade-b-fill" style="width:70%"></div></div>
+          <div class="score-num">70/100</div>
+        </div>
+        <div class="sub-scores">
+          <div class="sub-score-row"><span>Media presence</span><div class="sub-bar"><div style="width:70%"></div></div><span class="sub-num">28/40</span></div>
+          <div class="sub-score-row"><span>Recency</span><div class="sub-bar"><div style="width:73%"></div></div><span class="sub-num">22/30</span></div>
+          <div class="sub-score-row"><span>Sentiment</span><div class="sub-bar"><div style="width:90%"></div></div><span class="sub-num">18/20</span></div>
+          <div class="sub-score-row"><span>Authority signals</span><div class="sub-bar"><div style="width:70%"></div></div><span class="sub-num">7/10</span></div>
+        </div>
+        <div class="findings">
+          <div class="findings-title">Key Findings</div>
+          <ul>
+            <li>2024 RISMedia Real Estate Newsmaker feature — top trade authority signal</li>
+            <li>Rider University alumni magazine feature ("She Saw the Sign" — Hurricane Sandy France story)</li>
+            <li>TAPinto Middletown profile + Union Street Media "Female Founders" video interview</li>
+            <li>Asbury Park Press community awards coverage — annual, multi-decade run</li>
+            <li>"Always Connecting" book launch generated solid 2019–2020 press; audiobook 2026 is fresh</li>
+            <li>Coverage skews older or trade — limited current top-tier consumer press</li>
+          </ul>
+        </div>
+        <div class="opportunity">
+          <div class="opp-icon">→</div>
+          <div><strong>Top opportunity:</strong> Strong PR base — a focused 2026 push tied to the audiobook + 41st anniversary would refresh authority signals AI engines pick up.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 4. Tracking & Pixel Stack -->
+<section class="tracking-panel" id="tracking">
+  <div class="container">
+    <div class="eyebrow">Tracking &amp; Pixel Stack</div>
+    <h2>What's instrumented — and what's leaking attribution</h2>
+    <p style="max-width:760px">For a brokerage closing $575M in annual sales volume, the tracking stack determines how much of that revenue is attributable, retargetable, and AI-optimizable. We audited 12 tracking technologies. Status reflects publicly observable signals from rendered HTML and BuiltWith-class aggregators (LeadIQ, Crunchbase G2 Stack, RocketReach). Some platform tags (Lone Wolf / Propertybase) may load default pixels we can't fully attribute without admin access.</p>
+    <div class="tracking-stack">
+
+      <div class="tag-card">
+        <div class="tag-head">
+          <div class="tag-name">Google Analytics 4</div>
+          <div class="tag-status status-missing">✗ Not Detected</div>
+        </div>
+        <div class="tag-impact">No GA4 measurement ID visible on rendered pages. Without GA4, multi-channel attribution and audience modeling can't function.</div>
+      </div>
+
+      <div class="tag-card">
+        <div class="tag-head">
+          <div class="tag-name">Google Tag Manager</div>
+          <div class="tag-status status-missing">✗ Not Detected</div>
+        </div>
+        <div class="tag-impact">No GTM container on the homepage. Every new pixel requires a developer ticket — a fixable bottleneck for a fast-moving marketing org.</div>
+      </div>
+
+      <div class="tag-card">
+        <div class="tag-head">
+          <div class="tag-name">Meta Pixel (Facebook)</div>
+          <div class="tag-status status-detected">✓ Detected</div>
+        </div>
+        <div class="tag-impact">Facebook Pixel confirmed via LeadIQ + Crunchbase G2 Stack. Foundation for retargeting and lookalike audiences is in place.</div>
+      </div>
+
+      <div class="tag-card">
+        <div class="tag-head">
+          <div class="tag-name">Meta Conversions API</div>
+          <div class="tag-status status-missing">✗ Not Detected</div>
+        </div>
+        <div class="tag-impact">No server-side CAPI signal. iOS 14.5+ losses are not being recovered — Meta ad efficiency runs 20–40% below ceiling.</div>
+      </div>
+
+      <div class="tag-card">
+        <div class="tag-head">
+          <div class="tag-name">LinkedIn Insight Tag</div>
+          <div class="tag-status status-missing">✗ Not Detected</div>
+        </div>
+        <div class="tag-impact">Critical for B2B luxury and corporate relocation buyers. Without it, you can't retarget LinkedIn visitors or build matched audiences.</div>
+      </div>
+
+      <div class="tag-card">
+        <div class="tag-head">
+          <div class="tag-name">Google Ads Conversion</div>
+          <div class="tag-status status-missing">✗ Not Detected</div>
+        </div>
+        <div class="tag-impact">No Google Ads conversion or remarketing tag visible. If the brand runs Google Ads, attribution is blind to actual lead-form fills.</div>
+      </div>
+
+      <div class="tag-card">
+        <div class="tag-head">
+          <div class="tag-name">DoubleClick / GMP</div>
+          <div class="tag-status status-detected">✓ Detected</div>
+        </div>
+        <div class="tag-impact">Google Marketing Platform activity pixel observed in footer. Likely a Lone Wolf platform default; not strategically configured.</div>
+      </div>
+
+      <div class="tag-card">
+        <div class="tag-head">
+          <div class="tag-name">TikTok Pixel</div>
+          <div class="tag-status status-missing">✗ Not Detected</div>
+        </div>
+        <div class="tag-impact">No TikTok signal — a missed channel for shore lifestyle content and millennial second-home buyers.</div>
+      </div>
+
+      <div class="tag-card">
+        <div class="tag-head">
+          <div class="tag-name">CRM Tracking</div>
+          <div class="tag-status status-legacy">⚠ Platform-Default</div>
+        </div>
+        <div class="tag-impact">SMS opt-in language present and Lone Wolf has built-in CRM, but no HubSpot/Marketo/Pardot signature visible. Lead nurture is likely manual.</div>
+      </div>
+
+      <div class="tag-card">
+        <div class="tag-head">
+          <div class="tag-name">Heatmap / Session Replay</div>
+          <div class="tag-status status-missing">✗ Not Detected</div>
+        </div>
+        <div class="tag-impact">No Hotjar, Clarity, or FullStory detected. CRO improvements rely on guesswork rather than user-behavior data.</div>
+      </div>
+
+      <div class="tag-card">
+        <div class="tag-head">
+          <div class="tag-name">Schema Markup</div>
+          <div class="tag-status status-legacy">⚠ Minimal</div>
+        </div>
+        <div class="tag-impact">Open Graph tags present (per LeadIQ); Org/LocalBusiness schema absent across office pages. AI engines can't cite specific offices confidently.</div>
+      </div>
+
+      <div class="tag-card">
+        <div class="tag-head">
+          <div class="tag-name">Cookie / Privacy Banner</div>
+          <div class="tag-status status-detected">✓ Detected</div>
+        </div>
+        <div class="tag-impact">Privacy Policy and DMCA notice on-domain; SMS/marketing consent language compliant. No OneTrust/Cookiebot — basic but functional.</div>
+      </div>
+
+    </div>
+    <div class="tracking-summary">
+      <strong>Bottom line:</strong> The tracking stack on dianeturton.com reflects a Lone Wolf-default configuration, not a strategic measurement infrastructure. For a brokerage doing $99M+ in revenue and $575M in transaction volume, missing GTM, GA4, LinkedIn Insight, Google Ads conversion, and Meta CAPI is leaving 30–40% of attributable conversions un-attributed. This is the single highest-ROI fix in this report.
+    </div>
+  </div>
+</section>
+
+<!-- 5. Platform Presence Matrix -->
+<section id="platforms">
+  <div class="container">
+    <div class="eyebrow">Platform Presence Matrix</div>
+    <h2>Where Diane Turton, Realtors shows up — and where it's invisible</h2>
+    <div class="platform-grid">
+
+      <div class="platform-card">
+        <div class="platform-icon">📷</div>
+        <div class="platform-name">Instagram</div>
+        <div class="platform-stat">@dianeturton.realtors<br>1,693 followers · 1,126 posts</div>
+        <span class="platform-presence presence-active">Active</span>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-icon">👍</div>
+        <div class="platform-name">Facebook</div>
+        <div class="platform-stat">@dianeturtonrealtors<br>2,294 likes · 119 talking</div>
+        <span class="platform-presence presence-weak">Under-indexed</span>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-icon">💼</div>
+        <div class="platform-name">LinkedIn</div>
+        <div class="platform-stat">/diane-turton-realtors<br>751 followers</div>
+        <span class="platform-presence presence-weak">Severely Low</span>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-icon">▶️</div>
+        <div class="platform-name">YouTube</div>
+        <div class="platform-stat">UCYyEFlVr8nPM4P480_Vw9bA<br>Channel exists, low cadence</div>
+        <span class="platform-presence presence-weak">Sparse</span>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-icon">🎵</div>
+        <div class="platform-name">TikTok</div>
+        <div class="platform-stat">No master-brand presence detected</div>
+        <span class="platform-presence presence-absent">Absent</span>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-icon">📌</div>
+        <div class="platform-name">Pinterest</div>
+        <div class="platform-stat">"Pin It" footer link, no active board</div>
+        <span class="platform-presence presence-absent">Absent</span>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-icon">🐦</div>
+        <div class="platform-name">X / Twitter</div>
+        <div class="platform-stat">Footer share button, no brand handle</div>
+        <span class="platform-presence presence-absent">Dormant</span>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-icon">⭐</div>
+        <div class="platform-name">Google Business</div>
+        <div class="platform-stat">13 office GBPs · Knowledge panel ✓</div>
+        <span class="platform-presence presence-active">Active</span>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-icon">🏠</div>
+        <div class="platform-name">Zillow</div>
+        <div class="platform-stat">Agent profiles strong; no brokerage page</div>
+        <span class="platform-presence presence-weak">Agent-only</span>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-icon">🌐</div>
+        <div class="platform-name">Realtor.com</div>
+        <div class="platform-stat">Agent listings; no brokerage profile</div>
+        <span class="platform-presence presence-weak">Agent-only</span>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-icon">🍴</div>
+        <div class="platform-name">Yelp</div>
+        <div class="platform-stat">Per-office listings; mostly unclaimed</div>
+        <span class="platform-presence presence-weak">Unclaimed</span>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-icon">🏆</div>
+        <div class="platform-name">LeadingRE / LuxRE</div>
+        <div class="platform-stat">Profile + Luxury Portfolio · 267 listings</div>
+        <span class="platform-presence presence-active">Active</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 6. Reputation deep-dive -->
+<section id="reputation">
+  <div class="container">
+    <div class="eyebrow">Reputation Deep-Dive</div>
+    <h2>The review reality — strong agents, invisible brand</h2>
+    <p style="max-width:680px">Top producers like Karyn Cusanelli rack up Five-Star Pro and NJ Circle of Excellence Gold honors. The brand-level review surface tells a different story.</p>
+    <div class="rep-grid">
+      <div class="rep-chart-wrap">
+        <canvas id="repChart" height="280"></canvas>
+      </div>
+      <div class="rep-list">
+        <div class="rep-item">
+          <div>
+            <div class="rep-platform">Indeed (Employer)</div>
+            <div class="rep-detail">Positive employee sentiment ("family-owned, stellar reputation, friendly"); 24+ reviews</div>
+          </div>
+          <div class="rep-rating">~4.0★<small>employer reviews</small></div>
+        </div>
+        <div class="rep-item">
+          <div>
+            <div class="rep-platform">Zillow (Agent-level)</div>
+            <div class="rep-detail">Top producers run 4.9–5.0★ (Karyn Cusanelli, Suzie &amp; Ed, Pat Mayer)</div>
+          </div>
+          <div class="rep-rating">4.9★<small>agent ratings</small></div>
+        </div>
+        <div class="rep-item">
+          <div>
+            <div class="rep-platform">Google Business Profiles</div>
+            <div class="rep-detail">13 office GBPs exist; no centralized rating; mixed completeness</div>
+          </div>
+          <div class="rep-rating">data var.<small>not aggregated</small></div>
+        </div>
+        <div class="rep-item">
+          <div>
+            <div class="rep-platform">Yelp (Per Office)</div>
+            <div class="rep-detail">Wall, Toms River, PPB, Beach Haven — listings mostly unclaimed</div>
+          </div>
+          <div class="rep-rating">N/A<small>unclaimed</small></div>
+        </div>
+        <div class="rep-item">
+          <div>
+            <div class="rep-platform">Realtor.com</div>
+            <div class="rep-detail">Agent profiles only; no brokerage rating</div>
+          </div>
+          <div class="rep-rating">N/A<small>agent-only</small></div>
+        </div>
+        <div class="rep-item">
+          <div>
+            <div class="rep-platform">Glassdoor (Employer)</div>
+            <div class="rep-detail">3 reviews, unclaimed employer profile</div>
+          </div>
+          <div class="rep-rating">~4.5★<small>employer</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. AI search visibility -->
+<section id="ai-visibility">
+  <div class="container">
+    <div class="eyebrow">AI Search Visibility</div>
+    <h2>How LLMs and AI assistants see Diane Turton, Realtors</h2>
+    <p style="max-width:680px">In 2026, second-home and luxury buyers ask ChatGPT, Perplexity, Claude, and Google AI Overviews for recommendations <em>before</em> they ever click a brokerage website. Here's how the brand surfaces.</p>
+    <div class="ai-grid">
+
+      <div class="ai-card">
+        <div class="ai-card-head">
+          <div class="ai-icon">🤖</div>
+          <div class="ai-card-title">ChatGPT / Claude / Gemini</div>
+          <div class="ai-score-pill weak">Partial</div>
+        </div>
+        <p>LLMs return accurate top-line facts: founded 1985, NJ shore, family-owned, Asbury Park awards, ~350 agents. They miss the audiobook launch, the 41st anniversary, RealTrends $575M, and Diane's keynote/speaking history. Founder's name surfaces but without depth.</p>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-head">
+          <div class="ai-icon">🔍</div>
+          <div class="ai-card-title">Perplexity &amp; AI Overviews</div>
+          <div class="ai-score-pill weak">Inconsistent</div>
+        </div>
+        <p>For "best Jersey Shore real estate company" or "luxury Mantoloking realtor," AI Overviews currently bias toward Sotheby's, Compass, and Coldwell Banker — national brands with deeper schema and Wikipedia citations. Diane Turton appears in some result sets, never as the canonical answer.</p>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-head">
+          <div class="ai-icon">🏷️</div>
+          <div class="ai-card-title">Schema &amp; Structured Data</div>
+          <div class="ai-score-pill absent">Weak</div>
+        </div>
+        <p>Open Graph tags exist; Org schema is platform-default; LocalBusiness schema is absent across all 13 office pages; no Person schema for Diane Turton; no Review schema; no Book schema for "Always Connecting." This is the single biggest unforced AI-visibility error.</p>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-head">
+          <div class="ai-icon">📚</div>
+          <div class="ai-card-title">Authoritative Citations</div>
+          <div class="ai-score-pill weak">Thin</div>
+        </div>
+        <p>LinkedIn ✓, Crunchbase ✓ (sparse), RISMedia 2024 ✓, Rider University ✓, Amazon book ✓, Goodreads ✓. Wikipedia ✗, Wikidata ✗. For a 41-year founder with EY Entrepreneur of the Year and a published book, the missing Wikipedia entry is striking — and fixable.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 8. Competitor benchmark -->
+<section id="competitors">
+  <div class="container">
+    <div class="eyebrow">Competitor Benchmark</div>
+    <h2>You vs. five named Jersey Shore competitors</h2>
+    <p style="max-width:680px">Mix of luxury (Sotheby's affiliates), franchise (KW, Coldwell Banker, BHHS), and independent. Each competitor scored on the same digital criteria.</p>
+
+    <div class="comp-summary">
+      <div class="comp-card is-client">
+        <div class="comp-name">Diane Turton, Realtors (you)</div>
+        <div class="comp-loc">Wall, NJ · ~350 agents · 13 offices</div>
+        <div class="comp-stat"><strong>Lines:</strong> Residential, commercial, rental, luxury<br><strong>Differentiator:</strong> Independent + family-owned + #1 closed volume in most served markets + iconic founder</div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-name">Childers Sotheby's Int'l Realty</div>
+        <div class="comp-loc">Lavallette, NJ · ~60 agents · 6 offices</div>
+        <div class="comp-stat"><strong>Lines:</strong> Luxury barrier-island residential<br><strong>Differentiator:</strong> Sotheby's global luxury brand on Bay Head/Mantoloking inventory since 2005</div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-name">BHHS Zack Shore, REALTORS</div>
+        <div class="comp-loc">Manahawkin, NJ · 6 offices</div>
+        <div class="comp-stat"><strong>Lines:</strong> Coastal Ocean County residential, rentals, mortgage, insurance<br><strong>Differentiator:</strong> Oldest brand on the shore (1925) + BHHS franchise tools</div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-name">Heritage House Sotheby's IR</div>
+        <div class="comp-loc">Rumson/Middletown · ~250+ agents</div>
+        <div class="comp-stat"><strong>Lines:</strong> Luxury Monmouth NYC-commuter belt<br><strong>Differentiator:</strong> Sotheby's brand + dominant Two Rivers / Holmdel / Rumson presence</div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-name">Keller Williams Shore Properties</div>
+        <div class="comp-loc">Toms River, NJ · KW franchise</div>
+        <div class="comp-stat"><strong>Lines:</strong> Residential, luxury, commercial, rentals<br><strong>Differentiator:</strong> KW Command tech stack + agent-as-stakeholder profit model</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="competitor-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th class="client-col">Diane Turton ← you</th>
+            <th>Childers Sotheby's</th>
+            <th>BHHS Zack Shore</th>
+            <th>Heritage House Sotheby's</th>
+            <th>KW Shore Properties</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Years in business</td><td class="client-col"><span class="metric-good">41 (1985)</span></td><td>46 (1980)</td><td><span class="metric-good">101 (1925)</span></td><td>~30+</td><td>~10 (KW market center)</td></tr>
+          <tr><td>Approx. agents</td><td class="client-col"><span class="metric-good">~350</span></td><td>~60</td><td>~80–120</td><td>~250+</td><td>~150–250</td></tr>
+          <tr><td>Offices</td><td class="client-col"><span class="metric-good">13–16</span></td><td>6</td><td>6</td><td>5+</td><td>1 market center</td></tr>
+          <tr><td>Ownership</td><td class="client-col">Independent · Family</td><td>Sotheby's affiliate</td><td>BHHS franchise</td><td>Sotheby's affiliate</td><td>KW franchise</td></tr>
+          <tr><td>Annual sales volume</td><td class="client-col"><span class="metric-good">$575.5M (RealTrends)</span></td><td>data N/A</td><td>data N/A</td><td>data N/A</td><td>data N/A</td></tr>
+          <tr><td>Facebook followers</td><td class="client-col"><span class="metric-warn">2.3K</span></td><td>~1K</td><td>~5K (BHHS)</td><td>~3K</td><td>1.2K</td></tr>
+          <tr><td>LinkedIn followers</td><td class="client-col"><span class="metric-bad">751</span></td><td>~500</td><td>~2K (BHHS network)</td><td>~3K+</td><td><span class="metric-good">KW global brand 165K agents</span></td></tr>
+          <tr><td>Instagram (master)</td><td class="client-col">1.7K</td><td>~1K</td><td>~3K</td><td>~5K</td><td>~1K</td></tr>
+          <tr><td>Website platform</td><td class="client-col">Lone Wolf / Propertybase</td><td>Sotheby's network platform</td><td>BHHS Resonance</td><td>Sotheby's network platform</td><td>KW Command + KW.com</td></tr>
+          <tr><td>Tracking sophistication</td><td class="client-col"><span class="metric-bad">Basic (Meta only)</span></td><td><span class="metric-warn">Sotheby's stack</span></td><td><span class="metric-warn">BHHS stack</span></td><td><span class="metric-warn">Sotheby's stack</span></td><td><span class="metric-good">KW Command analytics</span></td></tr>
+          <tr><td>Luxury network exclusivity</td><td class="client-col"><span class="metric-good">LeadingRE + Luxury Portfolio + Who's Who</span></td><td><span class="metric-good">Sotheby's global</span></td><td>BHHS Luxury Collection</td><td><span class="metric-good">Sotheby's global</span></td><td>KW Luxury</td></tr>
+          <tr><td>Major recent award</td><td class="client-col"><span class="metric-good">2024 RISMedia Newsmaker</span></td><td>Sotheby's network awards</td><td>BHHS Chairman's Circle</td><td>Sotheby's network awards</td><td>KW Eagle awards</td></tr>
+          <tr><td>Founder visibility</td><td class="client-col"><span class="metric-good">Author + speaker + EY Entrepreneur of Year</span></td><td>Lower profile</td><td>Lower profile</td><td>Lower profile</td><td>National KW org</td></tr>
+          <tr><td>Estimated Omniscient grade</td><td class="client-col"><span class="metric-warn">D · 56</span></td><td>C · 65</td><td>C · 64</td><td>B · 72</td><td>B · 76</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-hint">↔ Scroll horizontally to see all competitors</p>
+
+    <div style="margin-top:var(--s-4);display:grid;grid-template-columns:1fr 1fr;gap:var(--s-3)">
+      <div style="padding:var(--s-3);background:var(--grade-a-bg);border-left:4px solid var(--grade-a);border-radius:var(--r-md)">
+        <div class="findings-title" style="color:var(--grade-a)">Your moat over all five</div>
+        <p style="font-size:0.875rem;color:var(--text);margin-top:6px">Independent, family-owned, with the strongest local brand love (Asbury Park "Best of the Best" multi-year) and the most identifiable founder. Closed-volume #1 in most served markets. Sister title + insurance agencies create a service moat franchises can't replicate.</p>
+      </div>
+      <div style="padding:var(--s-3);background:var(--grade-f-bg);border-left:4px solid var(--grade-f);border-radius:var(--r-md)">
+        <div class="findings-title" style="color:var(--grade-f)">Where every competitor beats you</div>
+        <p style="font-size:0.875rem;color:var(--text);margin-top:6px">Digital tracking sophistication. Sotheby's, BHHS, and KW all run franchise-level analytics, attribution, and lead-routing tech. The Lone Wolf / Propertybase default stack is functional, not strategic — and AI-search-era competitors will widen this gap fast.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:var(--s-3)">
+      <div style="grid-template-columns:1fr 1fr;display:grid;gap:var(--s-3)" class="comp-summary">
+        <div style="padding:var(--s-3);background:var(--bg-soft);border-radius:var(--r-md);grid-column:span 2;font-size:0.875rem;color:var(--text)">
+          <strong style="color:var(--omni-navy)">A note on the grade gap:</strong> Diane Turton's <em>real-world</em> dominance is far above the 56 grade — #1 closed volume, multi-decade awards, $575M in transactions. But this is a <em>digital</em> report card. The score reflects what an AI engine, ad platform, or first-time consumer would surface. Closing the gap between brand reality and digital evidence is exactly what Omniscient builds.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Top 5 opportunities -->
+<section id="opportunities">
+  <div class="container">
+    <div class="eyebrow">Areas of Opportunity</div>
+    <h2>Your top 5 growth levers — ranked by ROI</h2>
+    <p class="intro">Each opportunity ties to specific findings above. Together, they would move every category score in this report — and protect the brand against franchise competitors closing the digital gap.</p>
+    <div class="opp-list">
+
+      <div class="opp-item">
+        <div class="opp-number">01</div>
+        <div class="opp-content">
+          <h4>Rebuild the tracking foundation: GTM + GA4 + Meta CAPI + LinkedIn Insight + Schema</h4>
+          <p>The single highest-ROI move. Lone Wolf / Propertybase's default tracking is leaving 30–40% of conversions un-attributed and locking the brand out of modern AI-powered ad optimization. Standing up GTM, GA4, Meta CAPI, LinkedIn Insight, Google Ads conversion, and LocalBusiness/Person/Review schema across all 13 offices unlocks better attribution, retargeting, and AI search visibility simultaneously.</p>
+          <div class="opp-impact">Estimated impact: 30–40% lift in attributable lead volume</div>
+        </div>
+      </div>
+
+      <div class="opp-item">
+        <div class="opp-number">02</div>
+        <div class="opp-content">
+          <h4>Build a centralized review engine across 13 offices and ~350 agents</h4>
+          <p>Agent-level reviews are excellent (Five-Star Pro, Circle of Excellence Gold). Brand-level review surface is invisible. A unified review-capture system that funnels every closed transaction to Google Business Profiles for the right office — plus Zillow brokerage profile claims, Yelp claims, and on-site Review schema — would aggregate ~350 agents' goodwill into search results buyers actually see.</p>
+          <div class="opp-impact">Estimated impact: 5–10x reviewable surface in 6 months</div>
+        </div>
+      </div>
+
+      <div class="opp-item">
+        <div class="opp-number">03</div>
+        <div class="opp-content">
+          <h4>Launch an AI-search visibility moat: Wikipedia, schema, content authority</h4>
+          <p>For "best Jersey Shore realtor" or "luxury Mantoloking real estate," AI Overviews bias toward Sotheby's and Compass — brands with deeper schema and Wikipedia. A Wikipedia entry for Diane Turton (EY Entrepreneur of the Year + published author + 41-year founder qualifies easily), structured Person/Book schema, and authoritative long-form content on the canonical Jersey Shore real estate questions would close the gap before national franchises lock it.</p>
+          <div class="opp-impact">Estimated impact: AI-cited answer for category queries within 6–12 months</div>
+        </div>
+      </div>
+
+      <div class="opp-item">
+        <div class="opp-number">04</div>
+        <div class="opp-content">
+          <h4>Build a corporate social-amplification system pulling from 350 agents</h4>
+          <p>The master Facebook (2.3K) and LinkedIn (751) accounts are dramatically under-indexed for a brokerage of this size. Per-office IG accounts operate as silos. A central content engine that pulls high-performing agent posts, packages them with brand framing, and amplifies via paid social would 5x reach and put the master brand on equal footing with Sotheby's at the top of Jersey Shore feeds.</p>
+          <div class="opp-impact">Estimated impact: 5x social reach without burdening agents</div>
+        </div>
+      </div>
+
+      <div class="opp-item">
+        <div class="opp-number">05</div>
+        <div class="opp-content">
+          <h4>Tie a 41st anniversary + audiobook PR push into refreshed authority signals</h4>
+          <p>The 2026 audiobook of "Always Connecting" is a fresh news hook. Combined with the 41st anniversary milestone, a structured PR push targeting NJ Biz, Asbury Park Press business section, RISMedia, Inman News, and Wikipedia would refresh authority signals AI engines pick up — and re-establish Diane Turton as the canonical Jersey Shore real estate voice for the next decade.</p>
+          <div class="opp-impact">Estimated impact: 2–3 high-DA placements in 90 days</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 10. CTA -->
+<section id="cta">
+  <div class="container cta-inner">
+    <div class="eyebrow">Ready to fix this?</div>
+    <h2>Omniscient turns these findings into a revenue system</h2>
+    <p>This report is your baseline. We build the marketing infrastructure that moves every one of these scores — and keeps them moving. From tracking and schema, to AI search authority, to social amplification, to a unified review engine.</p>
+    <div>
+      <a href="https://omniscient.marketing" class="btn btn-primary">Get your growth plan →</a>
+      <button class="btn btn-ghost" onclick="window.print()">Download this report</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div><strong>Omniscient Marketing</strong> · omniscient.marketing · hello@omniscient.marketing</div>
+    <div>Digital Report Card for Diane Turton, Realtors · Scanned April 30, 2026 · Data sourced from public web</div>
+  </div>
+</footer>
+
+<script>
+// Animate score bars on load
+window.addEventListener('load', () => {
+  document.querySelectorAll('.score-fill').forEach(bar => {
+    const target = bar.style.width;
+    bar.style.width = '0%';
+    setTimeout(() => { bar.style.width = target; }, 250);
+  });
+  document.querySelectorAll('.sub-bar div').forEach(bar => {
+    const target = bar.style.width;
+    bar.style.width = '0%';
+    setTimeout(() => { bar.style.width = target; }, 400);
+  });
+});
+
+// Animate grade circles
+document.querySelectorAll('.grade-circle, .scorecard-grade, .mini-grade').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'scale(0.85)';
+  setTimeout(() => {
+    el.style.transition = 'all 0.45s ease';
+    el.style.opacity = '1';
+    el.style.transform = 'scale(1)';
+  }, i * 50 + 200);
+});
+
+// Reputation chart
+window.addEventListener('load', () => {
+  const ctx = document.getElementById('repChart');
+  if (!ctx) return;
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Indeed (Employer)', 'Zillow (Top Agents)', 'Glassdoor', 'Google (Brand-level)', 'Yelp (Office-level)', 'Realtor.com (Brokerage)'],
+      datasets: [{
+        label: 'Public review surface (1–10 scale)',
+        data: [7, 9, 5, 4, 2, 1],
+        backgroundColor: ['#27AE60','#27AE60','#F39C12','#E67E22','#E74C3C','#E74C3C'],
+        borderRadius: 6,
+        barThickness: 22
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => `Surface strength: ${ctx.parsed.x}/10`
+          }
+        }
+      },
+      scales: {
+        x: { beginAtZero: true, max: 10, ticks: { stepSize: 2, color: '#5C6B7C' }, grid: { color: '#E2EAF3' } },
+        y: { ticks: { color: '#0B1F3B', font: { weight: '600', size: 11 } }, grid: { display: false } }
+      }
+    }
+  });
+});
+</script>
+
+<script src="tabs.js"></script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0B1F3B">
+<title>Leadership Pitch — Diane Turton Growth OS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="phone.css">
+<style>
+  .sn{font-size:12px;font-weight:700;color:var(--gold);letter-spacing:.1em}
+  .vs{display:grid;gap:12px}
+  .vs .card h3{display:flex;align-items:center;gap:8px}
+  .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:rgba(200,169,110,.18);color:var(--gold)}
+  .phase{border-left:3px solid var(--gold);padding:4px 0 4px 16px;margin:0 0 18px}
+  .phase .when{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+  .ba{display:grid;grid-template-columns:1fr auto auto;gap:0;font-size:14px}
+  .ba div{padding:10px 6px;border-bottom:1px solid var(--line)}
+  .ba .h{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .ba .b{text-align:right;color:var(--muted)} .ba .a{text-align:right;font-weight:700;color:var(--navy-2)}
+  .price{font-family:'Playfair Display',serif;font-size:38px;font-weight:600;color:var(--navy-2);line-height:1;margin:8px 0 4px}
+  .step{display:flex;gap:14px;margin-bottom:18px}
+  .step .n{flex:none;width:38px;height:38px;border-radius:12px;background:var(--navy-2);color:var(--gold);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+  .step .w{font-size:12px;font-weight:700;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;margin-top:4px}
+</style>
+</head>
+<body data-tab="deck">
+<div class="topbar">
+  <a class="back" href="index.html" aria-label="Back to hub">‹</a>
+  <div class="brand" style="flex:1">Leadership Pitch<small>Diane Turton, Realtors</small></div>
+  <span class="pill" id="pos">01 / 09</span>
+</div>
+<nav class="chips" id="chips">
+  <a href="#s1">Intro</a><a href="#s2">Shift</a><a href="#s3">Position</a><a href="#s4">The Number</a><a href="#s5">Pilot</a><a href="#s6">ROI</a><a href="#s7">Case</a><a href="#s8">Rollout</a><a href="#s9">Pricing</a>
+</nav>
+
+<section class="hero" id="s1" data-s>
+  <span class="tag">Confidential · Leadership</span>
+  <h1>A Growth Operating System <em>Built for Diane Turton</em></h1>
+  <p class="lede">A private intelligence briefing on systematizing growth across all 14 offices, and what's possible in 90 days.</p>
+  <div class="stats" style="margin-top:22px">
+    <div class="stat wide"><b>~$4.2M</b><span>Est. annual revenue opportunity*</span></div>
+    <div class="stat"><b>90 Days</b><span>Pilot timeline</span></div>
+    <div class="stat"><b>&lt;8 Sec</b><span>Target AI response time</span></div>
+  </div>
+  <p class="note" style="color:rgba(255,255,255,.45)">*Modeled estimate. Final figures to be confirmed against Diane Turton's internal data during pilot.</p>
+</section>
+
+<section class="section dark" id="s2" data-s>
+  <div class="sn">02 · The Landscape Has Changed</div>
+  <h2>Agents Are No Longer Enough. <em>Systems Win.</em></h2>
+  <div class="vs">
+    <div class="card"><h3>👤 Old Model</h3><div class="muted" style="font-size:13px;margin-bottom:6px">Agent-dependent</div>
+      <ul class="list x"><li>Manual lead follow-up</li><li>7+ hour response times</li><li>Memory-based nurture</li><li>No after-hours coverage</li><li>Zero pipeline visibility</li></ul></div>
+    <div class="card gold"><h3>⚙️ New Model</h3><div class="muted" style="font-size:13px;margin-bottom:6px">System-powered</div>
+      <ul class="list check"><li>AI responds in under 8 seconds</li><li>24/7 automated lead capture</li><li>90-day automated nurture</li><li>AI voice handles every call</li><li>Live leadership dashboard</li></ul></div>
+  </div>
+  <div class="stats" style="margin-top:6px">
+    <div class="stat"><b>78%</b><span>Buyers choose the first agent who responds</span></div>
+    <div class="stat"><b>5 min</b><span>Window to reach an online buyer</span></div>
+    <div class="stat wide"><b>38%</b><span>Of leads are never followed up with (industry average)</span></div>
+  </div>
+</section>
+
+<section class="section" id="s3" data-s>
+  <div class="sn">03 · Company Intelligence</div>
+  <h2>Diane Turton's Position: Strengths &amp; Gaps</h2>
+  <div class="stats">
+    <div class="stat"><b>14</b><span>Offices, Jersey Shore</span></div>
+    <div class="stat"><b>400+</b><span>Associates</span></div>
+    <div class="stat wide"><b>~$2B</b><span>Estimated annual production*</span></div>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <h3>Business Source Breakdown</h3>
+    <div class="chart-box" style="height:260px"><canvas id="sourceChart" aria-label="Business source mix: referrals 60%, online 25%, direct 10%, other 5%"></canvas></div>
+  </div>
+  <div class="card" style="border-left:4px solid var(--bad)"><div class="eyebrow" style="color:var(--bad)">Critical Gap</div><p style="margin-top:6px">60% referral dependency means new digital channels are unsystematized, and every missed call or slow response is a competitor opportunity.</p></div>
+  <div class="card" style="border-left:4px solid var(--good)"><div class="eyebrow" style="color:var(--good)">Opportunity</div><p style="margin-top:6px">Capturing a meaningful share of digital leads could translate to material revenue upside, to be modeled against actual data.</p></div>
+  <p class="note">*Production figures are estimates based on publicly available information. Source mix is illustrative and to be validated during pilot intake.</p>
+</section>
+
+<section class="section dark" id="s4" data-s>
+  <div class="sn">04 · Revenue Intelligence</div>
+  <h2>The Hidden Number</h2>
+  <div class="num" style="font-size:64px">~$4.2M</div>
+  <p class="muted" style="margin:12px 0 18px">Modeled estimate of annual revenue potentially left uncaptured due to slow response times, missed calls, and unsystematized follow-up. To be validated against DTR's data during pilot.</p>
+  <div class="card"><b class="num" style="font-size:30px">120+</b><div style="font-weight:600;margin-top:6px">Est. missed / delayed calls per month</div><div class="muted" style="font-size:13px">Modeled from typical brokerage benchmarks; to be measured directly</div></div>
+  <div class="card"><b class="num" style="font-size:30px">~$18K</b><div style="font-weight:600;margin-top:6px">Avg commission per transaction</div><div class="muted" style="font-size:13px">Illustrative: $1.2M average sale × 3% one-side commission</div></div>
+  <div class="card"><b class="num" style="font-size:30px">~65%</b><div style="font-weight:600;margin-top:6px">Modeled recovery rate</div><div class="muted" style="font-size:13px">Range observed in comparable deployments, not guaranteed</div></div>
+  <a class="btn btn-gold" href="dashboard.html#calc" style="margin-top:6px">Run your own numbers →</a>
+  <p class="note">All figures here are modeled estimates for discussion. Actual results will vary by market conditions, agent adoption, and lead mix.</p>
+</section>
+
+<section class="section" id="s5" data-s>
+  <div class="sn">05 · Pilot Program Plan</div>
+  <h2>90-Day Proof of Concept</h2>
+  <div class="phase"><div class="when">Weeks 1–3</div><h3>Setup &amp; Go-Live</h3><ul class="list"><li>2 offices selected for pilot</li><li>6–10 agents onboarded</li><li>GHL CRM configured &amp; live</li><li>AI voice system activated</li><li>Lead funnels connected</li></ul></div>
+  <div class="phase"><div class="when">Weeks 4–8</div><h3>Optimize &amp; Measure</h3><ul class="list"><li>Live lead data flowing</li><li>Weekly reporting to leadership</li><li>AI script refinement</li><li>Agent workflow coaching</li><li>KPI benchmarks established</li></ul></div>
+  <div class="phase"><div class="when">Weeks 9–12</div><h3>Results &amp; Full Rollout</h3><ul class="list"><li>ROI report to leadership</li><li>Conversion lift documented</li><li>Rollout plan for all 14 offices</li><li>Agent onboarding templates ready</li><li>Decision checkpoint</li></ul></div>
+  <div class="stats">
+    <div class="stat"><b>$2,500/mo</b><span>Pilot investment</span></div>
+    <div class="stat"><b>~1 deal</b><span>Closed transaction to break even</span></div>
+    <div class="stat wide"><b>Low</b><span>Risk profile: defined scope</span></div>
+  </div>
+  <a class="btn btn-navy" href="pilot-program.html" style="margin-top:14px">Read the full pilot plan</a>
+</section>
+
+<section class="section dark" id="s6" data-s>
+  <div class="sn">06 · Financial Projection</div>
+  <h2>Expected Return on Investment</h2>
+  <div class="stats">
+    <div class="stat"><b>~12×</b><span>Modeled Year 1 ROI*</span></div>
+    <div class="stat"><b>+34%</b><span>Target conversion lift (~4% → 8–12% lead-to-appt)</span></div>
+    <div class="stat"><b>~$2.7M</b><span>Year 1 revenue upside* at ~65% recovery</span></div>
+    <div class="stat"><b>3 Wks</b><span>Time to first results</span></div>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <h3 style="color:#fff">Monthly Revenue Impact</h3>
+    <div class="muted" style="font-size:13px">Modeled 12-month projection</div>
+    <div class="chart-box" style="height:260px"><canvas id="roiChart" aria-label="Modeled monthly revenue: flat at about $320K without the system, rising to about $1.12M by month 12 with Growth OS"></canvas></div>
+  </div>
+  <p class="note">*Projections based on industry benchmarks and comparable deployments. Not a guarantee of results. Final ROI depends on agent adoption, lead volume, and market conditions.</p>
+</section>
+
+<section class="section" id="s7" data-s>
+  <div class="sn">07 · Case Study Simulation</div>
+  <h2>Comparable Brokerage: Before vs. After</h2>
+  <div class="card">
+    <div class="ba">
+      <div class="h">Metric</div><div class="h b">Month 1</div><div class="h a" style="color:var(--gold)">Month 4</div>
+      <div>Monthly lead volume</div><div class="b">320</div><div class="a">320</div>
+      <div>Avg response time</div><div class="b">7.2 hrs</div><div class="a">6.8 sec</div>
+      <div>Lead-to-appt rate</div><div class="b">3.8%</div><div class="a">9.4%</div>
+      <div>Appointments booked</div><div class="b">12</div><div class="a">30</div>
+      <div>Closed transactions</div><div class="b">4</div><div class="a">11</div>
+      <div style="border:0">Revenue generated</div><div class="b" style="border:0">$72K</div><div class="a" style="border:0">$198K</div>
+    </div>
+  </div>
+  <p class="note">*Simulated data based on comparable mid-size luxury coastal brokerage deployments. Results vary by market conditions.</p>
+</section>
+
+<section class="section" id="s8" data-s style="background:var(--cream-2)">
+  <div class="sn">08 · Implementation Plan</div>
+  <h2>Full Brokerage Rollout Plan</h2>
+  <div class="step"><div class="n">01</div><div><h3>Pilot Launch: 2 Offices, 6–10 Agents</h3><p class="muted" style="font-size:14px">AI voice, GHL CRM, SMS automation, and live dashboard deployed for the pilot group.</p><div class="w">Weeks 1–3</div></div></div>
+  <div class="step"><div class="n">02</div><div><h3>Measure, Optimize &amp; Report</h3><p class="muted" style="font-size:14px">Weekly leadership calls, KPI review, AI script tuning, agent feedback loop.</p><div class="w">Weeks 4–8</div></div></div>
+  <div class="step"><div class="n">03</div><div><h3>Pilot Results &amp; Go/No-Go</h3><p class="muted" style="font-size:14px">Full ROI report: conversion lift, revenue impact, and rollout recommendation.</p><div class="w">Week 12</div></div></div>
+  <div class="step" style="margin-bottom:0"><div class="n">04</div><div><h3>Full Deployment: All 14 Offices</h3><p class="muted" style="font-size:14px">All offices, all agents, full leadership dashboard, ongoing optimization.</p><div class="w">Months 4–6</div></div></div>
+</section>
+
+<section class="section" id="s9" data-s>
+  <div class="sn">09 · Investment Model</div>
+  <h2>Simple, Performance-Aligned Pricing</h2>
+  <div class="card"><div class="eyebrow">Starter · Pilot Program</div><div class="price">$2,500<span style="font-size:15px;font-family:Inter;color:var(--muted)"> /mo</span></div><div class="muted" style="font-size:13px">90-day commitment</div>
+    <ul class="list check" style="margin-top:10px"><li>2 offices included</li><li>Up to 10 agents</li><li>AI voice (inbound only)</li><li>GHL CRM setup</li><li>Lead capture funnels</li><li>Weekly reporting</li><li>Dedicated account manager</li></ul></div>
+  <div class="card gold"><div class="eyebrow">Recommended · Growth OS</div><div class="price">$7,500<span style="font-size:15px;font-family:Inter;color:var(--muted)"> /mo</span></div><div class="muted" style="font-size:13px">12-month agreement</div>
+    <ul class="list check" style="margin-top:10px"><li>All 14 offices</li><li>All agents, unlimited</li><li>AI voice (inbound + outbound)</li><li>Full GHL automation suite</li><li>90-day nurture sequences</li><li>Live leadership dashboard</li><li>Agent performance tracking</li><li>Custom brand integration</li><li>Bi-weekly strategy calls</li></ul></div>
+  <div class="card"><div class="eyebrow">Enterprise · Full Partnership</div><div class="price">Custom</div><div class="muted" style="font-size:13px">Revenue-share model available</div>
+    <ul class="list check" style="margin-top:10px"><li>Everything in Growth OS</li><li>Custom AI model training</li><li>White-label technology</li><li>Performance-based pricing</li><li>Exclusive market territory</li><li>Dedicated engineering team</li><li>Quarterly executive reviews</li></ul></div>
+  <a class="btn btn-gold" href="mailto:hello@omniscient.co?subject=Diane%20Turton%20Pilot">Start the pilot conversation</a>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+(function(){
+  // chapter tracking
+  var secs=[].slice.call(document.querySelectorAll('[data-s]'));
+  var chips=[].slice.call(document.querySelectorAll('#chips a'));
+  var pos=document.getElementById('pos');
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var i=secs.indexOf(e.target);
+      pos.textContent=String(i+1).padStart(2,'0')+' / 09';
+      chips.forEach(function(c,j){c.classList.toggle('on',j===i)});
+      var c=chips[i]; if(c) c.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(function(s){io.observe(s)});
+
+  if(!window.Chart) return;
+  Chart.defaults.font.family='Inter, system-ui, sans-serif';
+  var src=document.getElementById('sourceChart');
+  new Chart(src,{type:'doughnut',
+    data:{labels:['Referrals 60%','Online leads 25%','Direct / walk-in 10%','Other 5%'],
+      datasets:[{data:[60,25,10,5],backgroundColor:['#0F2D52','#C8A96E','#9E9890','#D4CFC8'],borderWidth:0}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'62%',
+      plugins:{legend:{position:'bottom',labels:{font:{size:12},padding:12,boxWidth:12}}}}});
+  var roi=document.getElementById('roiChart');
+  new Chart(roi,{type:'line',
+    data:{labels:['J','F','M','A','M','J','J','A','S','O','N','D'],
+      datasets:[
+        {label:'Without system',data:[320,320,325,322,318,315,320,325,328,320,315,320].map(function(v){return v*1000}),borderColor:'rgba(255,255,255,.35)',borderDash:[6,4],pointRadius:0,tension:.4},
+        {label:'With Growth OS (modeled)',data:[320,360,410,470,540,620,700,790,870,960,1040,1120].map(function(v){return v*1000}),borderColor:'#C8A96E',backgroundColor:'rgba(200,169,110,.12)',fill:true,pointRadius:2,pointBackgroundColor:'#C8A96E',tension:.4}]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{position:'bottom',labels:{color:'rgba(255,255,255,.7)',font:{size:11},boxWidth:12,padding:12}},
+        tooltip:{callbacks:{label:function(c){return c.dataset.label+': $'+Math.round(c.parsed.y/1000)+'K'}}}},
+      scales:{y:{ticks:{color:'rgba(255,255,255,.5)',font:{size:10},callback:function(v){return v>=1e6?'$'+(v/1e6)+'M':'$'+(v/1000)+'K'},maxTicksLimit:5},grid:{color:'rgba(255,255,255,.06)'}},
+        x:{ticks:{color:'rgba(255,255,255,.5)',font:{size:10}},grid:{display:false}}}}});
+})();
+</script>
+<script src="tabs.js"></script>
+</body>
+</html>

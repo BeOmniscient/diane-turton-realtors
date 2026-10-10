@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow"><meta name="theme-color" content="#0B1F3B">
+<title>System Architecture — Diane Turton Growth OS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="phone.css">
+<style>
+.doc{padding:20px 18px 28px;font-size:16px}
+.doc h1{display:none}
+.doc h2{font-size:23px;margin:30px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.doc h2:first-child{margin-top:0;border-top:0;padding-top:0}
+.doc h3{font-size:18px;margin:22px 0 8px;color:var(--navy-2)}
+.doc h4{font-size:15px;margin:16px 0 6px;font-family:Inter,sans-serif;font-weight:700}
+.doc p{margin:0 0 12px}
+.doc ul,.doc ol{margin:0 0 14px 22px}
+.doc li{margin:4px 0}
+.doc hr{display:none}
+.doc blockquote{margin:12px 0;padding:12px 14px;background:var(--paper);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;font-size:15px;color:#33404F}
+.doc blockquote p:last-child{margin:0}
+.doc code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;background:var(--cream-2);padding:1px 5px;border-radius:5px;word-break:break-word}
+.doc pre{background:var(--navy);color:#E8EDF4;padding:14px;border-radius:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 14px;font-size:13px;line-height:1.5}
+.doc pre code{background:none;padding:0;color:inherit;word-break:normal;white-space:pre}
+.doc a{color:var(--navy-3)}
+.toc{margin:0 0 6px}
+.toc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;color:var(--navy-2);padding:14px 16px;background:var(--paper);border:1px solid var(--line);border-radius:14px}
+.toc summary::-webkit-details-marker{display:none}
+.toc summary::after{content:"▾";color:var(--gold)}
+.toc[open] summary{border-radius:14px 14px 0 0}
+.toc ol{list-style:none;margin:0;padding:6px 0;background:var(--paper);border:1px solid var(--line);border-top:0;border-radius:0 0 14px 14px}
+.toc li a{display:block;padding:10px 16px;text-decoration:none;font-size:14.5px;color:var(--ink)}
+.top{position:fixed;right:16px;bottom:calc(var(--tab-h) + var(--safe-b) + 14px);width:44px;height:44px;border-radius:50%;background:var(--navy-2);color:var(--gold);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:18px;box-shadow:0 4px 14px rgba(0,0,0,.2);z-index:45}
+</style></head>
+<body data-tab="docs">
+<div class="topbar"><a class="back" href="docs.html" aria-label="Back to documents">&#8249;</a>
+<div class="brand" style="flex:1">System Architecture<small>Diane Turton, Realtors</small></div></div>
+<header class="hero" style="padding:24px 18px 26px"><div class="eyebrow">Operating Plan</div><h1 style="font-size:28px;margin:8px 0 6px">System Architecture</h1><p class="lede" style="font-size:14.5px">Layers, data model and integration map</p></header>
+<main class="doc"><details class="toc"><summary>Jump to section (7)</summary><ol><li><a href="#overview">Overview</a></li><li><a href="#architecture-layers">Architecture Layers</a></li><li><a href="#component-breakdown">Component Breakdown</a></li><li><a href="#data-model">Data Model</a></li><li><a href="#integration-map">Integration Map</a></li><li><a href="#security-amp-permissions">Security &amp; Permissions</a></li><li><a href="#technology-stack-summary">Technology Stack Summary</a></li></ol></details>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>The Omniscient Real Estate Growth OS is a layered technology platform designed to sit on top of Diane Turton's existing brokerage operations without disrupting current workflows. It captures more leads, responds faster than any human can, nurtures every contact automatically, and gives leadership real-time visibility into performance across all 14 offices.</p>
+<p><strong>Core principle:</strong> The system does not replace agents — it ensures every agent works from the same high-performance baseline, and that no lead ever goes unhandled.</p>
+<hr />
+<h2 id="architecture-layers">Architecture Layers</h2>
+<pre><code>┌─────────────────────────────────────────────────────────────┐
+│                    LEAD CAPTURE LAYER                        │
+│  Web Forms · Zillow/Realtor.com Sync · Phone Calls · Texts  │
+│  Social DMs · QR Codes · Open House Sign-Ins · Chat Widget  │
+└────────────────────────┬────────────────────────────────────┘
+                         │
+                         ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    AI RESPONSE LAYER                         │
+│        Retell AI Voice · SMS AI · Email AI · Chat AI        │
+│              Response time: &lt; 8 seconds, 24/7               │
+└────────────────────────┬────────────────────────────────────┘
+                         │
+                         ▼
+┌─────────────────────────────────────────────────────────────┐
+│                  QUALIFICATION LAYER                         │
+│   Lead scoring · Buyer/Seller/Rental intent detection       │
+│   Budget qualification · Timeline · Urgency flags           │
+└────────────────────────┬────────────────────────────────────┘
+                         │
+                         ▼
+┌─────────────────────────────────────────────────────────────┐
+│                   AUTOMATION LAYER (GHL)                     │
+│   Appointment booking · CRM update · Agent assignment       │
+│   SMS/Email sequences · Task creation · Pipeline stages     │
+└────────────────────────┬────────────────────────────────────┘
+                         │
+                         ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    AGENT LAYER                               │
+│   Mobile app alerts · Assigned lead cards · Follow-up tasks │
+│   Script guidance · Performance scoring · Daily digests     │
+└────────────────────────┬────────────────────────────────────┘
+                         │
+                         ▼
+┌─────────────────────────────────────────────────────────────┐
+│                  LEADERSHIP DASHBOARD                        │
+│   Live pipeline · Office comparisons · Revenue tracking     │
+│   Conversion rates · Agent rankings · KPI alerts            │
+└─────────────────────────────────────────────────────────────┘
+</code></pre>
+<hr />
+<h2 id="component-breakdown">Component Breakdown</h2>
+<h3>1. Lead Capture Layer</h3>
+<p><strong>Sources integrated:</strong></p>
+<ul>
+<li>Diane Turton website (contact forms, property inquiry forms)</li>
+<li>Zillow Premier Agent feed</li>
+<li>Realtor.com leads</li>
+<li>Facebook/Instagram Lead Ads</li>
+<li>Google PPC landing pages</li>
+<li>Inbound phone calls (all office lines)</li>
+<li>Open house digital sign-ins (tablet kiosk or QR code)</li>
+<li>Text-in keywords (e.g., "Text SPRING to 732-XXX-XXXX")</li>
+<li>Live chat widget on dianeturton.com</li>
+</ul>
+<p><strong>Routing logic:</strong></p>
+<ul>
+<li>All leads funnel into GoHighLevel CRM as new contacts</li>
+<li>Source tag applied automatically</li>
+<li>Duplicate detection runs on phone + email</li>
+<li>Lead scored 0–100 on arrival based on behavior signals</li>
+</ul>
+<hr />
+<h3>2. AI Response Layer</h3>
+<p><strong>Stack:</strong></p>
+<ul>
+<li><strong>Voice:</strong> Retell AI (or Vapi.ai fallback) — answers inbound calls, places outbound follow-up calls</li>
+<li><strong>SMS:</strong> GoHighLevel AI SMS conversation feature + OpenAI GPT-4o for dynamic responses</li>
+<li><strong>Email:</strong> GHL email automation with AI-personalized first touch</li>
+<li><strong>Chat:</strong> GHL website chat widget with AI handoff to agent on hot leads</li>
+</ul>
+<p><strong>Response SLA:</strong></p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Response Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phone call (inbound)</td>
+<td>Answered immediately, 24/7</td>
+</tr>
+<tr>
+<td>Web form submission</td>
+<td>SMS + Email within 8 seconds</td>
+</tr>
+<tr>
+<td>Text message</td>
+<td>AI reply within 6 seconds</td>
+</tr>
+<tr>
+<td>After-hours inquiry</td>
+<td>AI handles, appointment booked, agent notified AM</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Escalation triggers:</strong></p>
+<ul>
+<li>Lead says "I want to speak to an agent" → immediate warm transfer or agent callback scheduled</li>
+<li>Lead scores 80+ → agent SMS alert within 30 seconds</li>
+<li>High-value ($2M+) property inquiry → office manager notification</li>
+</ul>
+<hr />
+<h3>3. Qualification Layer</h3>
+<p><strong>AI qualification script collects:</strong></p>
+<ul>
+<li>Intent: Buyer / Seller / Renter / Investor</li>
+<li>Timeline: Immediate / 1–3 months / 3–6 months / 6+ months</li>
+<li>Budget or price range</li>
+<li>Pre-approval status (buyers)</li>
+<li>Current home situation (sellers)</li>
+<li>Preferred areas / properties of interest</li>
+<li>Best contact time and method</li>
+</ul>
+<p><strong>Scoring model:</strong></p>
+<pre><code>Lead Score = 
+  Intent Weight (0–40 pts)
+  + Timeline Weight (0–25 pts)  
+  + Budget Qualification (0–20 pts)
+  + Engagement Score (0–15 pts)
+
+Hot:  80–100  → Immediate agent alert + AI follow-up in 5 min
+Warm: 50–79   → Agent assigned, follow-up sequence Day 1/3/7
+Cool: 20–49   → 90-day nurture sequence, monthly agent review
+Cold: 0–19    → Long-term drip, quarterly re-score
+</code></pre>
+<hr />
+<h3>4. Automation Layer — GoHighLevel</h3>
+<p><strong>CRM Structure:</strong></p>
+<pre><code>Account: Diane Turton Realtors
+├── Sub-account: Spring Lake Office
+├── Sub-account: Manasquan Office
+├── Sub-account: Bay Head Office
+├── Sub-account: Point Pleasant Beach Office
+├── Sub-account: Brielle Office
+├── Sub-account: Lavallette Office
+├── Sub-account: Toms River Office
+└── Sub-account: [7 Additional Offices]
+    └── Each contains:
+        ├── Pipeline: Buyer
+        ├── Pipeline: Seller
+        ├── Pipeline: Rental
+        ├── Calendar: Agent Availability
+        └── Contacts: All leads + clients
+</code></pre>
+<p><strong>Pipeline Stages:</strong></p>
+<pre><code>New Lead → Contacted → Qualified → Appointment Set → 
+Showing Scheduled → Offer Made → Under Contract → Closed → 
+Past Client (Referral Nurture)
+</code></pre>
+<hr />
+<h3>5. Agent Layer</h3>
+<p><strong>Agent mobile experience (GHL app):</strong></p>
+<ul>
+<li>Real-time push notification on new lead assignment</li>
+<li>Lead card with full context: source, score, qualification notes, AI conversation transcript</li>
+<li>One-tap call, text, or email from lead card</li>
+<li>Appointment calendar synced to Google/Outlook</li>
+<li>Daily digest: new leads, overdue follow-ups, upcoming appointments</li>
+<li>Weekly performance scorecard vs. office average</li>
+</ul>
+<p><strong>Agent tools provided:</strong></p>
+<ul>
+<li>Pre-built SMS/email templates (customizable)</li>
+<li>Objection-handling scripts</li>
+<li>Market stats and comps pulled automatically for active listings</li>
+<li>AI-drafted listing description suggestions</li>
+<li>Video message tool for high-value follow-ups</li>
+</ul>
+<hr />
+<h3>6. Leadership Dashboard</h3>
+<p><strong>Access levels:</strong></p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Visibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CEO / Broker-Owner</td>
+<td>All offices, all agents, revenue, full KPIs</td>
+</tr>
+<tr>
+<td>Regional Manager</td>
+<td>Assigned offices, team performance</td>
+</tr>
+<tr>
+<td>Office Manager</td>
+<td>Single office, all agents in office</td>
+</tr>
+<tr>
+<td>Agent</td>
+<td>Own leads, own pipeline, own performance only</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Dashboard modules:</strong></p>
+<ol>
+<li><strong>Live Pipeline Overview</strong> — total contacts by stage across all offices</li>
+<li><strong>Speed-to-Lead Tracker</strong> — average response time by office/agent</li>
+<li><strong>Conversion Funnel</strong> — lead → contact → appt → showing → contract → close</li>
+<li><strong>Revenue Impact</strong> — projected and closed revenue attributed to system</li>
+<li><strong>Agent Leaderboard</strong> — ranked by volume, conversion rate, response time</li>
+<li><strong>Office Comparison</strong> — side-by-side KPI view across all 14 offices</li>
+<li><strong>Alert Center</strong> — hot leads not yet contacted, stalled pipeline items, missed follow-ups</li>
+</ol>
+<hr />
+<h2 id="data-model">Data Model</h2>
+<h3>Core Tables</h3>
+<pre><code>agents
+  id, name, email, phone, office_id, tier, start_date, active
+
+leads
+  id, first_name, last_name, email, phone, source, score,
+  intent, budget_min, budget_max, timeline, status,
+  assigned_agent_id, created_at, last_contact_at
+
+calls
+  id, lead_id, agent_id, direction, duration_sec,
+  ai_handled, recording_url, transcript, outcome, created_at
+
+appointments
+  id, lead_id, agent_id, property_address, scheduled_at,
+  status, notes, outcome, created_at
+
+deals
+  id, lead_id, agent_id, office_id, property_address,
+  list_price, sale_price, commission, close_date, status
+
+offices
+  id, name, address, manager_id, phone, created_at
+</code></pre>
+<h3>Key Relationships</h3>
+<ul>
+<li>One agent → many leads (assigned)</li>
+<li>One lead → many calls, appointments, deals</li>
+<li>One office → many agents</li>
+<li>One deal → one lead, one agent, one office</li>
+</ul>
+<hr />
+<h2 id="integration-map">Integration Map</h2>
+<pre><code>Diane Turton Website ──────────► GoHighLevel CRM
+Zillow / Realtor.com ──────────► GoHighLevel CRM  
+Facebook Lead Ads ─────────────► GoHighLevel CRM
+Inbound Phone Lines ───────────► Retell AI ──────► GoHighLevel CRM
+Google PPC Pages ──────────────► GoHighLevel CRM
+                                        │
+                    ┌───────────────────┼───────────────────┐
+                    ▼                   ▼                   ▼
+              AI Voice Layer      SMS Automation      Email Sequences
+              (Retell/Vapi)       (GHL + GPT-4o)     (GHL Templates)
+                    │                   │                   │
+                    └───────────────────┼───────────────────┘
+                                        ▼
+                                  Agent App (GHL Mobile)
+                                        │
+                                        ▼
+                               Leadership Dashboard
+</code></pre>
+<hr />
+<h2 id="security-amp-permissions">Security &amp; Permissions</h2>
+<ul>
+<li>All data encrypted at rest (AES-256) and in transit (TLS 1.3)</li>
+<li>Role-based access control enforced at GHL sub-account level</li>
+<li>Call recordings stored 90 days, downloadable by managers</li>
+<li>TCPA-compliant SMS opt-in flow on all forms</li>
+<li>Lead data export available quarterly to broker-owner</li>
+<li>PII (personal identifiable information) never shared with third-party advertisers</li>
+</ul>
+<hr />
+<h2 id="technology-stack-summary">Technology Stack Summary</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Technology</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CRM &amp; Automation</td>
+<td>GoHighLevel</td>
+<td>Lead management, pipelines, automations, funnels</td>
+</tr>
+<tr>
+<td>AI Voice</td>
+<td>Retell AI</td>
+<td>Inbound/outbound call handling, qualification, booking</td>
+</tr>
+<tr>
+<td>AI SMS</td>
+<td>GHL + GPT-4o</td>
+<td>Intelligent text conversation and lead qualification</td>
+</tr>
+<tr>
+<td>Lead Capture</td>
+<td>GHL Funnels + Website Forms</td>
+<td>Unified lead intake from all sources</td>
+</tr>
+<tr>
+<td>Dashboard</td>
+<td>GHL Reporting + Custom HTML</td>
+<td>Real-time KPI visibility for leadership</td>
+</tr>
+<tr>
+<td>Agent App</td>
+<td>GoHighLevel Mobile</td>
+<td>Field-level lead management and follow-up</td>
+</tr>
+<tr>
+<td>Analytics</td>
+<td>GHL Attribution + Custom</td>
+<td>Revenue tracking, source ROI, conversion funnels</td>
+</tr>
+<tr>
+<td>Calendar</td>
+<td>GHL Calendar + Google Sync</td>
+<td>Appointment booking and agent availability</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<p><em>Prepared by Omniscient — Real Estate Growth Intelligence</em><br />
+<em>Confidential. Built exclusively for Diane Turton, Realtors.</em></p></main>
+<a class="top" href="#" aria-label="Back to top">↑</a>
+<script src="tabs.js"></script>
+</body></html>

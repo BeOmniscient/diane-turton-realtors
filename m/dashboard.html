@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0B1F3B">
+<title>Revenue Intelligence — Diane Turton Growth OS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="phone.css">
+<style>
+  .slider{margin-bottom:22px}
+  .slider .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .slider label{font-weight:600;font-size:15px}
+  .slider output{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--navy-2);white-space:nowrap}
+  .slider small{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:36px;background:transparent;margin-top:6px}
+  input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:6px;background:linear-gradient(90deg,var(--gold) var(--p,30%),var(--line) var(--p,30%))}
+  input[type=range]::-moz-range-track{height:6px;border-radius:6px;background:var(--line)}
+  input[type=range]::-moz-range-progress{height:6px;border-radius:6px;background:var(--gold)}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:#fff;border:3px solid var(--navy-2);margin-top:-12px;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+  input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--navy-2)}
+  .results{position:sticky;top:calc(60px + var(--safe-t));z-index:20;background:var(--navy);color:#fff;border-radius:18px;padding:16px;margin-bottom:18px;box-shadow:0 8px 24px rgba(11,31,59,.25)}
+  .results .row{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:rgba(255,255,255,.65);padding:3px 0}
+  .results .row b{color:#fff;font-weight:700}
+  .results .big{font-family:'Playfair Display',serif;font-size:36px;color:var(--gold-2);line-height:1.05}
+  .seg{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:4px 0 14px}
+  .seg::-webkit-scrollbar{display:none}
+  .seg button{flex:none;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--paper);font:600 13px Inter,sans-serif;color:var(--navy-2)}
+  .seg button.on{background:var(--navy-2);color:#fff;border-color:var(--navy-2)}
+  .agent{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+  .agent:last-child{border-bottom:0}
+  .agent .av{flex:none;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff}
+  .agent .m{flex:1;min-width:0}
+  .agent .m b{display:block;font-size:15px}
+  .agent .m span{font-size:12.5px;color:var(--muted)}
+  .agent .v{text-align:right;font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--navy-2)}
+  .agent .v small{display:block;font-family:Inter;font-size:11px;color:var(--muted);font-weight:500}
+  .office{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .office span{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+  /* demo */
+  .phone-demo{background:#071528;border-radius:22px;padding:14px;border:1px solid rgba(255,255,255,.1)}
+  .phone-demo .hd{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.6);padding:2px 4px 12px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .phone-demo .dot{width:8px;height:8px;border-radius:50%;background:#3FBF7F;box-shadow:0 0 0 4px rgba(63,191,127,.2)}
+  #demo{min-height:300px;max-height:60vh;overflow-y:auto;padding:12px 2px;display:flex;flex-direction:column;gap:10px}
+  .msg{max-width:86%;padding:11px 13px;border-radius:16px;font-size:14.5px;line-height:1.45;opacity:0;transform:translateY(6px);transition:all .35s}
+  .msg.show{opacity:1;transform:none}
+  .msg.lead{align-self:flex-start;background:rgba(255,255,255,.08);color:#fff;border-bottom-left-radius:4px}
+  .msg.ai{align-self:flex-end;background:var(--gold);color:var(--navy);border-bottom-right-radius:4px}
+  .msg .t{display:block;font-size:11px;margin-top:5px;opacity:.65}
+  .msg.sys{align-self:center;max-width:100%;text-align:center;background:transparent;color:rgba(255,255,255,.5);font-size:12.5px}
+  .msg.booked{align-self:stretch;max-width:100%;background:rgba(63,191,127,.14);border:1px solid rgba(63,191,127,.4);color:#BDF0D4;font-size:13.5px}
+  .ph{color:rgba(255,255,255,.4);text-align:center;margin:auto;font-size:14px;padding:40px 10px}
+</style>
+</head>
+<body data-tab="dash">
+<div class="topbar">
+  <a class="back" href="index.html" aria-label="Back to hub">‹</a>
+  <div class="brand" style="flex:1">Revenue Intelligence<small>Diane Turton, Realtors</small></div>
+</div>
+<nav class="chips" id="chips">
+  <a href="#calc" class="on">Calculator</a><a href="#profile">Profile</a><a href="#agents">Agents</a><a href="#assess">Assessment</a><a href="#os">Before / After</a><a href="#live">Live Demo</a><a href="#next">Next Step</a>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Confidential Brief</div>
+  <h1>The Future of Real Estate <em>Belongs to Systems</em></h1>
+  <p class="lede">See the revenue left on the table, and the operating system built to capture it.</p>
+  <div class="stats" style="margin-top:20px">
+    <div class="stat"><b>14</b><span>Office locations</span></div>
+    <div class="stat"><b>$2B+</b><span>Annual sales volume (est.)</span></div>
+    <div class="stat"><b>38%</b><span>Leads lost to slow response</span></div>
+    <div class="stat"><b>$4.2M</b><span>Est. annual revenue uncaptured</span></div>
+  </div>
+</header>
+
+<section class="section" id="calc">
+  <div class="eyebrow">Interactive</div>
+  <h2>Calculate the Hidden Revenue Loss</h2>
+  <p class="muted" style="margin-bottom:16px;font-size:14px">Drag the sliders. Results update live and stay pinned while you scroll.</p>
+  <div class="results" aria-live="polite">
+    <div class="muted" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)">Recoverable per year (with AI)</div>
+    <div class="big" id="recoverable">—</div>
+    <div class="row" style="margin-top:8px">Annual lost revenue<b id="annualLost">—</b></div>
+    <div class="row">Monthly lost revenue<b id="monthlyLost">—</b></div>
+    <div class="row">Monthly lost leads<b id="lostLeads">—</b></div>
+  </div>
+  <div class="slider"><div class="top"><label for="missedCalls">Missed / delayed calls per month</label><output id="missedCallsVal"></output></div>
+    <small>Unanswered, or answered after 1 hour</small>
+    <input type="range" id="missedCalls" min="20" max="500" value="120" step="10"></div>
+  <div class="slider"><div class="top"><label for="avgComm">Avg commission per deal</label><output id="avgCommVal"></output></div>
+    <small>$1.2M avg sale × 3% one side = $18,000</small>
+    <input type="range" id="avgComm" min="5000" max="50000" value="18000" step="500"></div>
+  <div class="slider"><div class="top"><label for="convRate">Lead-to-transaction rate</label><output id="convRateVal"></output></div>
+    <small>Industry: 2–4% without automation, 8–12% with AI</small>
+    <input type="range" id="convRate" min="1" max="15" value="4" step="0.5"></div>
+  <div class="card" style="background:var(--cream-2);border:0">
+    <b>Response time: 7 hours → 8 seconds</b>
+    <p class="muted" style="font-size:13.5px;margin-top:4px">With AI voice + SMS automation answering every inbound lead.</p>
+  </div>
+  <p class="note">Model: lost leads = missed calls × 38%; lost revenue = lost leads × conversion × commission; recoverable = 65% of annual loss. Modeled estimates, not guarantees.</p>
+</section>
+
+<section class="section" id="profile">
+  <div class="eyebrow">Company Intelligence</div>
+  <h2>Full Profile</h2>
+  <p class="muted" style="font-size:14.5px;margin-bottom:14px">A coastal luxury brokerage with deep community roots, award-winning agents, and a footprint across the Jersey Shore.</p>
+  <div class="stats">
+    <div class="stat"><b>14</b><span>Offices across Monmouth &amp; Ocean</span></div>
+    <div class="stat"><b>400+</b><span>Sales associates</span></div>
+    <div class="stat"><b>$2B+</b><span>Annual volume (est.)</span></div>
+    <div class="stat"><b>40+</b><span>Years in market</span></div>
+    <div class="stat"><b>$1.2M</b><span>Avg sale price (est.)</span></div>
+    <div class="stat"><b>60%</b><span>Referral business</span></div>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <h3>Market Coverage</h3>
+    <div class="office">Spring Lake<span>Flagship</span></div>
+    <div class="office">Manasquan<span>Coastal</span></div>
+    <div class="office">Point Pleasant Beach<span>Active</span></div>
+    <div class="office">Bay Head<span>Coastal</span></div>
+    <div class="office">Brielle<span>Active</span></div>
+    <div class="office">Lavallette<span>Coastal</span></div>
+    <div class="office">Toms River<span>Active</span></div>
+    <div class="office" style="border:0">Sea Girt + more<span>Regional</span></div>
+  </div>
+</section>
+
+<section class="section" id="agents">
+  <div class="eyebrow">Agent Performance</div>
+  <h2>Production Tier Analysis</h2>
+  <p class="muted" style="font-size:13.5px">Illustrative sample with placeholder names. A live deployment uses real CRM data.</p>
+  <div class="seg" id="seg">
+    <button class="on" data-t="all">All</button><button data-t="platinum">Platinum</button><button data-t="gold">Gold</button><button data-t="silver">Silver</button><button data-t="rising">Rising</button>
+  </div>
+  <div class="card" id="agentList" style="padding:4px 16px"></div>
+  <div class="card"><h3>Revenue by Tier ($M)</h3><div class="chart-box" style="height:250px"><canvas id="tierChart" aria-label="Revenue by tier: Platinum 22.3M, Gold 11.5M, Silver 3.9M, Rising 2.1M"></canvas></div></div>
+</section>
+
+<section class="section" id="assess">
+  <div class="eyebrow">Strategic Assessment</div>
+  <h2>Where Diane Turton Stands Today</h2>
+  <div class="card"><h3 style="color:var(--good)">Strengths</h3>
+    <ul class="list check">
+      <li><b>Dominant brand recognition</b><small>Four decades of trust on the Jersey Shore, near-impossible to replicate organically.</small></li>
+      <li><b>Multi-office density</b><small>A geographic moat competitors can't match without years of investment.</small></li>
+      <li><b>High-value inventory</b><small>Luxury positioning drives outsized commission per transaction.</small></li>
+      <li><b>Referral engine</b><small>A deep well of trust ready to be systematized.</small></li>
+      <li><b>Luxury affiliation</b><small>LeadingRE and luxury network memberships open national and international buyer pools.</small></li>
+    </ul></div>
+  <div class="card"><h3 style="color:var(--bad)">Gaps &amp; Opportunities</h3>
+    <ul class="list x">
+      <li><b>No AI-powered lead response</b><small>Typical brokerage response: 7+ hours. Online buyers choose within minutes.</small></li>
+      <li><b>Inconsistent follow-up</b><small>No standardized nurture; up to 38% of leads quietly disappear.</small></li>
+      <li><b>No unified CRM automation</b><small>No repeatable system converting leads to appointments at scale.</small></li>
+      <li><b>No missed-call recovery</b><small>After-hours calls go to voicemail with no automated follow-up.</small></li>
+      <li><b>No leadership dashboard</b><small>No real-time view of pipeline, agent activity, or bottlenecks.</small></li>
+    </ul></div>
+  <div class="card" style="border-left:4px solid var(--gold)"><b>The critical gap:</b> without automated lead response, the brokerage competes in a digital market with analog tools, leaving an estimated $4.2M+ in annual commission uncaptured.</div>
+</section>
+
+<section class="section dark" id="os">
+  <div class="eyebrow">The Omniscient OS</div>
+  <h2>Today vs. <em>Tomorrow</em></h2>
+  <div class="card"><div class="eyebrow" style="color:#E69A8F">Today</div>
+    <ul class="list x" style="margin-top:6px">
+      <li><b>Lead response: 7+ hours</b><small>Hot buyers are gone within 5 minutes.</small></li>
+      <li><b>Manual follow-up only</b><small>Memory and spreadsheets drive nurture.</small></li>
+      <li><b>Missed calls = lost deals</b><small>After-hours inquiries die silently.</small></li>
+      <li><b>No pipeline visibility</b><small>Leadership sees problems too late.</small></li>
+      <li><b>Uneven agent performance</b><small>No system lifts the median.</small></li>
+      <li><b>Marketing waste</b><small>Traffic that nobody catches or qualifies.</small></li>
+    </ul></div>
+  <div class="card gold"><div class="eyebrow">With Omniscient OS</div>
+    <ul class="list check" style="margin-top:6px">
+      <li><b>AI response in under 8 seconds</b><small>Web, call, or text, 24/7.</small></li>
+      <li><b>Automated 90-day nurture</b><small>SMS, email, and voice keep every lead warm.</small></li>
+      <li><b>AI voice answers every call</b><small>Qualifies, books, escalates hot leads live.</small></li>
+      <li><b>Live leadership dashboard</b><small>Pipeline, conversion, and agent activity across every office.</small></li>
+      <li><b>Standardized agent workflows</b><small>The median rises. The top 20% grows.</small></li>
+      <li><b>Full marketing attribution</b><small>Know which channels produce ROI.</small></li>
+    </ul></div>
+</section>
+
+<section class="section dark" id="live" style="background:var(--navy-2)">
+  <div class="eyebrow">Live System Simulation</div>
+  <h2>Watch the AI in Action</h2>
+  <p class="muted" style="font-size:14px;margin-bottom:14px">What happens the moment a lead calls at 11:47 PM.</p>
+  <div class="phone-demo">
+    <div class="hd"><span class="dot"></span>Omniscient OS · Lead Response Engine</div>
+    <div id="demo"><div class="ph">Tap <b>Run simulation</b> to watch a lead get handled automatically.</div></div>
+  </div>
+  <div class="stack" style="grid-template-columns:2fr 1fr;margin-top:12px">
+    <button class="btn btn-gold" id="runBtn">▶ Run simulation</button>
+    <button class="btn btn-ghost" id="resetBtn">Reset</button>
+  </div>
+</section>
+
+<section class="section" id="next">
+  <div class="eyebrow">Next Step</div>
+  <h2>Ready to See What's Possible?</h2>
+  <p class="muted" style="font-size:14.5px;margin-bottom:16px">A 45-minute private strategy session for the leadership team, mapping the system, timeline, and ROI for the brokerage.</p>
+  <div class="card"><b>📍 Pilot program</b><p class="muted" style="font-size:14px">2 offices, 6–10 agents, 90 days. Measurable results before any full rollout.</p></div>
+  <div class="card"><b>⚡ Rapid deployment</b><p class="muted" style="font-size:14px">Live within 3 weeks: onboarding, AI voice, CRM automation, dashboard.</p></div>
+  <div class="card"><b>📊 Leadership visibility</b><p class="muted" style="font-size:14px">From day one, a live dashboard of leads, calls, appointments, and revenue impact.</p></div>
+  <div class="stack">
+    <a class="btn btn-gold" href="mailto:hello@omniscient.co?subject=Diane%20Turton%20Strategy%20Session%20Request">Schedule a strategy call</a>
+    <a class="btn btn-navy" href="deck.html">View the pitch</a>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+(function(){
+  function $(id){return document.getElementById(id)}
+  // chips
+  var secs=['calc','profile','agents','assess','os','live','next'].map($);
+  var chips=[].slice.call(document.querySelectorAll('#chips a'));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var i=secs.indexOf(e.target);
+    chips.forEach(function(c,j){c.classList.toggle('on',j===i)});chips[i].scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});});},{rootMargin:'-40% 0px -55% 0px'});
+  secs.forEach(function(s){io.observe(s)});
+
+  // calculator
+  function fmt(n){if(n>=1e6)return '$'+(n/1e6).toFixed(1)+'M';if(n>=1e3)return '$'+Math.round(n/1e3)+'K';return '$'+n.toLocaleString()}
+  function fill(el){var p=(el.value-el.min)/(el.max-el.min)*100;el.style.setProperty('--p',p+'%')}
+  function calc(){
+    var missed=+$('missedCalls').value, comm=+$('avgComm').value, conv=+$('convRate').value/100;
+    $('missedCallsVal').textContent=missed;
+    $('avgCommVal').textContent='$'+comm.toLocaleString();
+    $('convRateVal').textContent=(conv*100).toFixed(1)+'%';
+    var lost=Math.round(missed*0.38), mon=Math.round(lost*conv*comm), yr=mon*12;
+    $('lostLeads').textContent=lost; $('monthlyLost').textContent=fmt(mon);
+    $('annualLost').textContent=fmt(yr); $('recoverable').textContent=fmt(Math.round(yr*0.65));
+    ['missedCalls','avgComm','convRate'].forEach(function(i){fill($(i))});
+  }
+  ['missedCalls','avgComm','convRate'].forEach(function(i){$(i).addEventListener('input',calc)});
+  calc();
+
+  // agents
+  var agents=[
+    ['Patricia Moran','PM','Spring Lake','$8.4M',18,'platinum'],['Robert Gallagher','RG','Manasquan','$7.1M',14,'platinum'],
+    ['Susan Connelly','SC','Bay Head','$6.8M',16,'platinum'],['James Thornton','JT','Sea Girt','$4.2M',10,'gold'],
+    ['Linda Hartwell','LH','Point Pleasant','$3.9M',9,'gold'],['Michael Russo','MR','Brielle','$3.4M',8,'gold'],
+    ['Carol Fleming','CF','Lavallette','$2.1M',5,'silver'],['David Kim','DK','Toms River','$1.8M',4,'silver'],
+    ['Amy Reinholt','AR','Brick','$1.2M',3,'rising'],['Tyler Marsh','TM','Spring Lake','$0.9M',2,'rising']];
+  var col={platinum:'#1A3F6F',gold:'#C8A96E',silver:'#9E9890',rising:'#2E6F95'};
+  function render(t){$('agentList').innerHTML=agents.filter(function(a){return t==='all'||a[5]===t}).map(function(a){
+    return '<div class="agent"><div class="av" style="background:'+col[a[5]]+'">'+a[1]+'</div><div class="m"><b>'+a[0]+'</b><span>'+a[2]+' · '+a[4]+' txns · '+a[5][0].toUpperCase()+a[5].slice(1)+'</span></div><div class="v">'+a[3]+'<small>YTD</small></div></div>'}).join('')}
+  render('all');
+  [].forEach.call(document.querySelectorAll('#seg button'),function(b){b.addEventListener('click',function(){
+    [].forEach.call(document.querySelectorAll('#seg button'),function(x){x.classList.remove('on')});b.classList.add('on');render(b.dataset.t)})});
+
+  if(window.Chart){
+    Chart.defaults.font.family='Inter, system-ui, sans-serif';
+    new Chart($('tierChart'),{type:'doughnut',data:{labels:['Platinum','Gold','Silver','Rising'],
+      datasets:[{data:[22.3,11.5,3.9,2.1],backgroundColor:[col.platinum,col.gold,col.silver,col.rising],borderWidth:0}]},
+      options:{responsive:true,maintainAspectRatio:false,cutout:'64%',plugins:{legend:{position:'bottom',labels:{font:{size:12},padding:12,boxWidth:12}},
+        tooltip:{callbacks:{label:function(c){return c.label+': $'+c.parsed+'M'}}}}}});
+  }
+
+  // demo
+  var msgs=[
+    ['sys','📞 Incoming call · "Michael Thompson" · 11:47 PM'],
+    ['lead','Hi, I saw the listing at 42 Ocean Avenue in Spring Lake, the $1.8M one with the pool. Is it still available? We\'d love to see it this weekend.','11:47:08 PM'],
+    ['ai','<b>Hi Michael!</b> Thanks for calling Diane Turton, Realtors. Great choice, 42 Ocean Ave is still active. I\'d love to set up a private showing this weekend. Saturday or Sunday?','Responded in 6.2s ⚡'],
+    ['lead','Saturday afternoon would be perfect, maybe 2 or 3?','11:47:42 PM'],
+    ['ai','<b>Perfect.</b> I have Saturday at 2:30 PM with one of our Spring Lake specialists. I\'ll text you a confirmation with the address, agent contact, and listing details. Is this the best number?','Responded in 4.8s ⚡'],
+    ['lead','Yes, this is my cell. Thank you!','11:48:02 PM'],
+    ['ai','<b>Confirmed.</b> Saturday at 2:30 PM, 42 Ocean Ave, Spring Lake. Your agent will follow up tomorrow morning. Have a great night! 🏠','Responded in 3.1s ⚡'],
+    ['booked','✅ <b>Appointment booked</b> · Sat 2:30 PM · 42 Ocean Ave · Assigned: Spring Lake agent · Lead score: Hot (92%) · CRM updated · Agent notified by SMS']];
+  var run=0;
+  function sleep(ms){return new Promise(function(r){setTimeout(r,ms)})}
+  async function play(){
+    var id=++run; $('runBtn').disabled=true; var box=$('demo'); box.innerHTML='';
+    for(var i=0;i<msgs.length;i++){
+      await sleep(i?1100:250); if(id!==run) return;
+      var m=msgs[i], el=document.createElement('div'); el.className='msg '+m[0];
+      el.innerHTML=m[1]+(m[2]?'<span class="t">'+m[2]+'</span>':''); box.appendChild(el);
+      requestAnimationFrame(function(){el.classList.add('show')}); box.scrollTop=box.scrollHeight;
+    }
+    $('runBtn').disabled=false; $('runBtn').textContent='▶ Run again';
+  }
+  $('runBtn').addEventListener('click',play);
+  $('resetBtn').addEventListener('click',function(){run++;$('runBtn').disabled=false;$('runBtn').textContent='▶ Run simulation';
+    $('demo').innerHTML='<div class="ph">Tap <b>Run simulation</b> to watch a lead get handled automatically.</div>'});
+})();
+</script>
+<script src="tabs.js"></script>
+</body>
+</html>
